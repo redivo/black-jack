@@ -1,32 +1,54 @@
---- BINARY TO BCD ---
+--------------------------------------------------
+-- Project:	Black-jack
+-- File:	bin_to_bcd.vhd
+-- Authors:	Daiane Fraga, George Redivo   
+--------------------------------------------------
 
-function to_bcd ( bin : std_logic_vector(7 downto 0) ) return std_logic_vector is
+library ieee;
+    use ieee.std_logic_1164.all;
+    use ieee.std_logic_arith.all;
+    use ieee.std_logic_unsigned.all;   
 
-variable i : integer:=0;
-variable bcd : std_logic_vector(11 downto 0) := (others => '0');
-variable bint : std_logic_vector(7 downto 0) := bin;
+-- binary number to binary-coded decimal
+entity bin_to_bcd is
+  port
+  (
+    bin_in    : in  std_logic_vector(4 downto 0);  -- input data in binary
+    ten_out   : out std_logic_vector(3 downto 0);  -- output data = ten
+    unit_out  : out std_logic_vector(3 downto 0)   -- output data = unit
+  );
+end bin_to_bcd;
 
+architecture bin_to_bcd of bin_to_bcd is
+
+  -- internal signal
+  signal    var_int	  : std_logic_vector(4 downto 0);
+  -- output numbers (bcd)
+  signal    sig_ten_out	  : std_logic_vector(3 downto 0);
+  signal    sig_unit_out  : std_logic_vector(3 downto 0);
+  -- input number (binary)
+  signal    sig_bin_in	  : std_logic_vector(4 downto 0);
+  
+  -- constants to control numbers
+  constant  TEN		  : std_logic_vector(4 downto 0) := "01010";
+  constant  TEN_LIMIT	  : std_logic_vector(4 downto 0) := "01001";
+  constant  INCREMENT	  : std_logic_vector(3 downto 0) := "0001";
+	
 begin
+  -- combinational circuit
 
-	for i in 0 to 7 loop  -- repeating 8 times.
-		bcd(11 downto 1) := bcd(10 downto 0);  --shifting the bits.
-		bcd(0) := bint(7);
-		bint(7 downto 1) := bint(6 downto 0);
-		bint(0) :='0';
+  var_int     <= sig_bin_int;
+  sig_ten_out <= "0000";
+  
+  while var_int > TEN_LIMIT 
+    var_int	<= var_int - TEN;
+    sig_ten_out <= sig_ten_out + INCREMENT; 
+  end while;
 
-		if(i < 7 and bcd(3 downto 0) > "0100") then --add 3 if BCD digit is greater than 4.
-			bcd(3 downto 0) := bcd(3 downto 0) + "0011";
-		end if;
+  -- decimal unit
+  unit_out  <= var_int;
+  -- decimal ten
+  ten_out   <= sig_ten_out;
 
-		if(i < 7 and bcd(7 downto 4) > "0100") then --add 3 if BCD digit is greater than 4.
-			bcd(7 downto 4) := bcd(7 downto 4) + "0011";
-		end if;
-
-		if(i < 7 and bcd(11 downto 8) > "0100") then  --add 3 if BCD digit is greater than 4.
-			bcd(11 downto 8) := bcd(11 downto 8) + "0011";
-		end if;
-	end loop;
-
-	return bcd;
-end to_bcd;
+end bin_to_bcd;
 
