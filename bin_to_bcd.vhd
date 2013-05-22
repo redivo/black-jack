@@ -24,7 +24,7 @@ architecture bin_to_bcd of bin_to_bcd is
   -- internal signal
   signal    var_int	  : std_logic_vector(4 downto 0);
   -- output numbers (bcd)
-  signal    sig_ten_out	  : std_logic_vector(3 downto 0);
+  signal    sig_ten_out	  : std_logic_vector(3 downto 0) := "0000";
   signal    sig_unit_out  : std_logic_vector(3 downto 0);
   -- input number (binary)
   signal    sig_bin_in	  : std_logic_vector(4 downto 0);
@@ -38,12 +38,11 @@ begin
   -- combinational circuit
 
   var_int     <= sig_bin_int;
-  sig_ten_out <= "0000";
   
-  while var_int > TEN_LIMIT 
+  while (var_int > TEN_LIMIT) loop
     var_int	<= var_int - TEN;
     sig_ten_out <= sig_ten_out + INCREMENT; 
-  end while;
+  end loop;
 
   -- decimal unit
   unit_out  <= var_int;
