@@ -47,6 +47,8 @@ architecture state_machine of state_machine is
 	signal	 dealer_points		: std_logic_vector(4 downto 0);
 	signal	 player_points		: std_logic_vector(4 downto 0);
 	signal	 card_counter		: std_logic_vector(4 downto 0);
+	signal stoped				: std_logic;
+	signal dealer_turn			: std_logic;
 begin
 	num_out <= sig_num_out;
 	win_out <= sig_win_out;
@@ -67,15 +69,19 @@ begin
 						sig_lose_out <= '0';
 						sig_tie_out <= '0';
 						sig_req_card_out <= '0';
+						stoped <= '0';
+						dealer_turn <= '0';
 						dealer_points <= 0;
 						player_points <= 0;
 						card_counter <= 0;
 						State <= LOAD;
-                			when LOAD =>
+
+					when LOAD =>
 						if card_bd_ok_in then
 							State <= START;		
 						end if;
-                			when START =>
+
+					when START =>
 						sig_req_card_out <= '1';
 						if card_counter < 2
 							player_points <= player_points + card_in;
@@ -86,21 +92,91 @@ begin
 							State <= SHOW_POINTS;
 						end if;	
 						card_counter <= card_counter + 1;
-                			when SHOW_POINTS => 
-						sig_num_out <= player_points;	
+
+					when SHOW_POINTS => 
+						sig_req_card_out <= '0';
+						sig_num_out <= player_points;
 						State <= CHECK_FINISH;
-                			when CHECK_STOP => 
-                			when CHECK_BUT => 
-                			when GIVE_CARD => 
-                			when CHECK_FINISH => 
-						if player_points < 21 and dealer_points < 21 then 
-							State <= CHECK_STOP;
-						elsif player_points < 21 and dealer_points > 21 or
-							player_points 
-                			when FINISH => 
+
+					when CHECK_STOP =>
+						if stoped = '1' then
+							dealer_turn <= '1';
+							State <= GIVE_CARD;
+						else
+							State <= CHECK_BUT;
+						end if;
+
+					when CHECK_BUT =>
+						if hit_in = '1' then
+							State <= GIVE_CARD;
+
+						elsif stay_in = '1' then
+							stoped <= '1';
+							State <= CHECK_FINISH;
+						end if;
+
+
+					when GIVE_CARD =>
+						if sig_req_card_out = '1' then
+							sig_req_card_out <= '0';
+							State <= SHOW_POINTS;
+						else
+							sig_req_card_out <= '1';
+
+							if dealer_turn = '1' then
+								dealer_points = dealer_points + card_in;
+							else
+								player_points = player_points + card_in;
+							end if;
+						end if;
+
+					when CHECK_FINISH => 
+						if player_points < 21 and dealer_points < 21 then
+							-- Dealer stay, so finish it
+							if sig_dealer_turn = '1' and (not (dealer_points < 16)) then
+								if player_points > dealer_points then
+									sig_win_out <= '1';
+								elsif dealer_points > player_points then
+									sig_lose_out <= '1';
+								else
+									sig_tie_out <= '1';
+								end if;
+
+								State <= FINISH;
+
+							-- Continue game
+							else
+								State <= CHECK_STOP;
+							end if;
+
+						-- Player win
+						elsif (not (dealer_points = 21)) and (not (player_points > 21)) then
+							State <- FINISH;
+							sig_win_out <= '1';
+
+						-- Player lose
+						elsif (player_points > 21 and (not (dealer_points > 21)))
+								or (player_points < 21 and dealer_points = 21) then
+							State <- FINISH;
+							sig_lose_out <= '1';
+
+						-- Tie
+						else
+							State <- FINISH;
+							sig_tie_out <= '1';
+
+						end if;
+
+					when FINISH =>
+						if show_in = '1' then
+							sig_num_out <= dealer_points;
+						else
+							sig_num_out <= player_points;
+						end if;
 
 					when others =>
-			        		State	<= RESET;
+						State	<= RESET;
+
 				end case;
 			end if;
 		end if;
