@@ -28,20 +28,25 @@ entity state_machine is
 end state_machine;
 
 architecture state_machine of state_machine is
-	constant LOAD		: integer := 0; 
-	constant START		: integer := 1; 
-	constant SHOW_POINTS	: integer := 2; 
-	constant CHECK_STOP	: integer := 3;
-	constant CHECK_BUT	: integer := 4;
-	constant GIVE_CARD	: integer := 5;
-	constant CHECK_FINISH	: integer := 6;
-	constant FINISH		: integer := 7;
-	signal	 State		: integer := 0;
-	signal   sig_num_out	: std_logic_vector(4 downto 0);
-	signal   sig_win_out	: std_logic;
-	signal   sig_lose_out	: std_logic;
-	signal   sig_tie_out	: std_logic;
+	constant RESET		: integer := 0; 
+	constant LOAD		: integer := 1; 
+	constant START		: integer := 2; 
+	constant SHOW_POINTS	: integer := 3; 
+	constant CHECK_STOP	: integer := 4;
+	constant CHECK_BUT	: integer := 5;
+	constant GIVE_CARD	: integer := 6;
+	constant CHECK_FINISH	: integer := 7;
+	constant FINISH		: integer := 8;
+
+	signal	 State			: integer;
+	signal   sig_num_out		: std_logic_vector(4 downto 0);
+	signal   sig_win_out		: std_logic;
+	signal   sig_lose_out		: std_logic;
+	signal   sig_tie_out		: std_logic;
 	signal   sig_req_card_out	: std_logic;
+	signal	 dealer_points		: std_logic_vector(4 downto 0);
+	signal	 player_points		: std_logic_vector(4 downto 0);
+	signal	 card_counter		: std_logic_vector(4 downto 0);
 begin
 	num_out <= sig_num_out;
 	win_out <= sig_win_out;
@@ -53,31 +58,49 @@ begin
 	begin    
 		if clock'event and clock='1'
 			if rst='1' then 
-	        		State	<= LOAD;
-				sig_num_out <= (others='0');
-				sig_win_out <= '0';
-				sig_lose_out <= '0';
-				sig_tie_out <= '0';
-				sig_req_card_out <= '0';
+	        		State	<= RESET;
 			else
 				case State is
-                			when LOAD => 
-                			when START => 
-                			when SHOW_POINTS => 
-                			when CHECK_STOP => 
-                			when CHECK_BUT => 
-                			when GIVE_CARD => 
-                			when CHECK_FINISH => 
-                			when FINISH => 
-
-					when others =>
-			        		State	<= LOAD;
+					when RESET =>
 						sig_num_out <= (others='0');
 						sig_win_out <= '0';
 						sig_lose_out <= '0';
 						sig_tie_out <= '0';
 						sig_req_card_out <= '0';
+						dealer_points <= 0;
+						player_points <= 0;
+						card_counter <= 0;
+						State <= LOAD;
+                			when LOAD =>
+						if card_bd_ok_in then
+							State <= START;		
+						end if;
+                			when START =>
+						sig_req_card_out <= '1';
+						if card_counter < 2
+							player_points <= player_points + card_in;
+						elsif card_counter < 4
+							dealer_points <= dealer_points + card_in;
+						else
+							sig_req_card_out <= '0';
+							State <= SHOW_POINTS;
+						end if;	
+						card_counter <= card_counter + 1;
+                			when SHOW_POINTS => 
+						sig_num_out <= player_points;	
+						State <= CHECK_FINISH;
+                			when CHECK_STOP => 
+                			when CHECK_BUT => 
+                			when GIVE_CARD => 
+                			when CHECK_FINISH => 
+						if player_points < 21 and dealer_points < 21 then 
+							State <= CHECK_STOP;
+						elsif player_points < 21 and dealer_points > 21 or
+							player_points 
+                			when FINISH => 
 
+					when others =>
+			        		State	<= RESET;
 				end case;
 			end if;
 		end if;
