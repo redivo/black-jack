@@ -1,0 +1,10 @@
+Running: /opt/Xilinx/13.4/ISE_DS/ISE/bin/lin/unwrapped/fuse -intstyle ise -incremental -o /media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger_isim_beh.exe -prj /media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger_beh.prj work.trigger 
+ISim O.87xd (signature 0x8ddf5b5d)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger.vhd" into library work
+ERROR:HDLCompiler:806 - "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger.vhd" Line 71: Syntax error near "=".
+ERROR:HDLCompiler:806 - "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger.vhd" Line 73: Syntax error near "=".
+ERROR:HDLCompiler:854 - "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger.vhd" Line 43: Unit <behavioral> ignored due to previous errors.
+VHDL file /media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger.vhd ignored due to errors

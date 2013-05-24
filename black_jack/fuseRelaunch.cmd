@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger_isim_beh.exe" -prj "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger_beh.prj" "work.trigger" 
