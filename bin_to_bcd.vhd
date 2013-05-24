@@ -37,17 +37,19 @@ architecture bin_to_bcd of bin_to_bcd is
 begin
   -- combinational circuit
 
-  var_int     <= sig_bin_int;
+  var_int     <= sig_bin_in;
+ 
+  process(bin_in) 
+  begin 
+    while (var_int > TEN_LIMIT) loop
+      var_int	<= var_int - TEN;
+      sig_ten_out <= sig_ten_out + INCREMENT; 
+    end loop;
   
-  while (var_int > TEN_LIMIT) loop
-    var_int	<= var_int - TEN;
-    sig_ten_out <= sig_ten_out + INCREMENT; 
-  end loop;
-
-  -- decimal unit
-  unit_out  <= var_int;
-  -- decimal ten
-  ten_out   <= sig_ten_out;
-
+    -- decimal unit
+    unit_out  <= var_int(3 downto 0);
+    -- decimal ten
+    ten_out   <= sig_ten_out;
+  end process;
 end bin_to_bcd;
 
