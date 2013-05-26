@@ -34,8 +34,9 @@
     </transform>
     <transform xil_pn:end_ts="1368999244" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1368999244">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1369002862" xil_pn:in_ck="183106271227896292" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1369002862">
+    <transform xil_pn:end_ts="1369537989" xil_pn:in_ck="183106271227896292" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1369537989">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="trigger.vhd"/>
@@ -43,10 +44,12 @@
     <transform xil_pn:end_ts="1369002838" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-3104062177838335465" xil_pn:start_ts="1369002838">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
     </transform>
     <transform xil_pn:end_ts="1369002838" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="7526718752308255935" xil_pn:start_ts="1369002838">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
     </transform>
     <transform xil_pn:end_ts="1369002838" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="2630042408150003396" xil_pn:start_ts="1369002838">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -56,6 +59,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
@@ -65,6 +69,7 @@
       <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="InputChanged"/>
     </transform>

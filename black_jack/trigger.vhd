@@ -40,47 +40,75 @@ entity trigger is
            show_out : out  STD_LOGIC);
 end trigger;
 
-architecture Behavioral of trigger is
+architecture trigger of trigger is
+
 -- Internal signals
-signal	sig_hit_in: std_logic;
-signal	sig_stay_in: std_logic;
-signal	sig_show_in: std_logic;
 signal	sig_hit_out: std_logic;
 signal	sig_stay_out: std_logic;
 signal	sig_show_out: std_logic;
+signal hit_pressed_out: std_logic;
+signal stay_pressed_out: std_logic;
 
 -- Hysteresis
-signal hit_hysteresis: integer := 0;
-constant HYSTERESIS: integer := 1000;
+signal hit_hysteresis: integer;
+signal stay_hysteresis: integer;
+
+constant HYSTERESIS: integer := 50;
 begin
 
 	-- Set signals to pins
-	sig_hit_in <= hit_in;
-	sig_stay_in <= stay_in;
-	sig_show_in <= show_in;
 	hit_out <= sig_hit_out;
 	stay_out <= sig_stay_out;
+	sig_show_out <= show_in;
 	show_out <= sig_show_out;
 
 	process (clk, rst)
 	begin
-		if (clk'event  and clk = '1') then
-			
-			-- Handle Hit input
-			if (sig_hit_in = '1') then
-				hit_hysteresis <= hit_hysteresis + 1;
-				if (hit_hysteresis = HYSTERESIS) then
-					hit_hysteresis <= 0;
-					sig_hit_out <= '1';
+		if (clk'event and clk = '1') then
+
+			if (rst = '1') then
+				hit_hysteresis <= 0;
+				stay_hysteresis <= 0;
+				hit_pressed_out <= '1';
+				stay_pressed_out <= '1';
+
+			else
+				-- Handle Hit input
+				if (hit_in = '1' and sig_hit_out = '0' and hit_pressed_out = '1') then
+					hit_hysteresis <= hit_hysteresis + 1;
+					if (hit_hysteresis = HYSTERESIS) then
+						hit_pressed_out <= '0';
+						hit_hysteresis <= 0;
+						sig_hit_out <= '1';
+					else
+						sig_hit_out <= '0';
+				end if;
 				else
+					if (hit_in = '0') then
+					hit_pressed_out <= '1';
+					end if;
 					sig_hit_out <= '0';
 				end if;
-			else
-				sig_hit_out <= '0';
+
+				-- Handle Stay input
+				if (stay_in = '1') then
+					stay_hysteresis <= stay_hysteresis + 1;
+					if (stay_hysteresis = HYSTERESIS) then
+						stay_pressed_out <= '0';
+						stay_hysteresis <= 0;
+					sig_stay_out <= '1';
+					else
+						sig_stay_out <= '0';
+					end if;
+				else
+					if (stay_in = '0') then
+						stay_pressed_out <= '1';
+					end if;
+					sig_stay_out <= '0';
+				end if;
 			end if;
-				
 		end if;
 	end process;
 
-end Behavioral;
+end trigger;
 
