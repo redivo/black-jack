@@ -23,14 +23,14 @@ begin
 	sig_bin <= bin_in;
 
 	ten_out <= 	"0000" when sig_bin < "01010" else
-					"0001" when sig_bin < "10100" else
-					"0010" when sig_bin < "11110" else
-					"0011";
+			"0001" when sig_bin < "10100" else
+			"0010" when sig_bin < "11110" else
+			"0011";
 
-	sig_temp <= sig_bin 				when sig_bin < "01010" else
-					sig_bin - "01010" when sig_bin < "10100" else
-					sig_bin - "10100" when sig_bin < "11110" else
-					sig_bin - "11110";
+	sig_temp <= 	sig_bin 	  when sig_bin < "01010" else
+			sig_bin - "01010" when sig_bin < "10100" else
+			sig_bin - "10100" when sig_bin < "11110" else
+			sig_bin - "11110";
 
 	one_out <= sig_temp(3 downto 0);
 
