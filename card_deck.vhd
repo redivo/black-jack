@@ -49,7 +49,6 @@ begin
 
 	-- end of paste
 
-	else
 	process (clk, rst)
 	begin
 		if (clk'event and clk = '1') then
