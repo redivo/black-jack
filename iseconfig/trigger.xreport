@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2013-05-26T00:11:19</DateModified>
+  <DateModified>2013-05-27T23:35:07</DateModified>
   <ModuleName>trigger</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/iseconfig/trigger.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack</ImplementationReportsDirectory>
+  <SavedFilePath>/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/iseconfig/trigger.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/</ImplementationReportsDirectory>
   <DateInitialized>2013-05-26T00:11:18</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

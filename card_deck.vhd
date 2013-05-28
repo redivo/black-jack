@@ -31,6 +31,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity card_deck is
     Port ( clk : in  STD_LOGIC;
+			rst : in  STD_LOGIC;
            card_out: out  STD_LOGIC_VECTOR(3 downto 0));
 end card_deck;
 
@@ -56,7 +57,7 @@ begin
 				sig_card_out <= card(counter);
 				counter <= counter + 1;
 			else
-				counter = 0;
+				counter <= 0;
 				sig_card_out <= card(counter);
 			end if;
 		end if;

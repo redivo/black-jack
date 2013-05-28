@@ -56,36 +56,36 @@ begin
 	tie_out <= sig_tie_out;
 	req_card_out <= sig_req_card_out;
 
-	fsm: process(rst, clk)
+	fsm: process(clk_in)
 	begin    
-		if clock'event and clock='1'
-			if rst='1' then 
+		if clk_in'event and clk_in='1' then
+			if rst_in = '1' then 
 	        		State	<= RESET;
 			else
 				case State is
 					when RESET =>
-						sig_num_out <= (others='0');
+						sig_num_out <= "00000";
 						sig_win_out <= '0';
 						sig_lose_out <= '0';
 						sig_tie_out <= '0';
 						sig_req_card_out <= '0';
 						stoped <= '0';
 						dealer_turn <= '0';
-						dealer_points <= 0;
-						player_points <= 0;
-						card_counter <= 0;
+						dealer_points <= "00000";
+						player_points <= "00000";
+						card_counter <= "00000";
 						State <= LOAD;
 
 					when LOAD =>
-						if card_bd_ok_in then
+						if card_bd_ok_in = '1' then
 							State <= START;		
 						end if;
 
 					when START =>
 						sig_req_card_out <= '1';
-						if card_counter < 2
+						if card_counter < 2 then
 							player_points <= player_points + card_in;
-						elsif card_counter < 4
+						elsif card_counter < 4 then
 							dealer_points <= dealer_points + card_in;
 						else
 							sig_req_card_out <= '0';
@@ -124,16 +124,16 @@ begin
 							sig_req_card_out <= '1';
 
 							if dealer_turn = '1' then
-								dealer_points = dealer_points + card_in;
+								dealer_points <= dealer_points + card_in;
 							else
-								player_points = player_points + card_in;
+								player_points <= player_points + card_in;
 							end if;
 						end if;
 
 					when CHECK_FINISH => 
 						if player_points < 21 and dealer_points < 21 then
 							-- Dealer stay, so finish it
-							if sig_dealer_turn = '1' and (not (dealer_points < 16)) then
+							if dealer_turn = '1' and (not (dealer_points < 16)) then
 								if player_points > dealer_points then
 									sig_win_out <= '1';
 								elsif dealer_points > player_points then
@@ -151,18 +151,18 @@ begin
 
 						-- Player win
 						elsif (not (dealer_points = 21)) and (not (player_points > 21)) then
-							State <- FINISH;
+							State <= FINISH;
 							sig_win_out <= '1';
 
 						-- Player lose
 						elsif (player_points > 21 and (not (dealer_points > 21)))
 								or (player_points < 21 and dealer_points = 21) then
-							State <- FINISH;
+							State <= FINISH;
 							sig_lose_out <= '1';
 
 						-- Tie
 						else
-							State <- FINISH;
+							State <= FINISH;
 							sig_tie_out <= '1';
 
 						end if;

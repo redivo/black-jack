@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/clock_divider.vhd" Line 14: Syntax error near &quot;<arg fmt="%s" index="1">gereric</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="854" delta="unknown" >"/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/clock_divider.vhd" Line 13: Unit &lt;<arg fmt="%s" index="1">clock_divider</arg>&gt; ignored due to previous errors.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="374" delta="unknown" >"/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/clock_divider.vhd" Line 27: Entity &lt;<arg fmt="%s" index="1">clock_divider</arg>&gt; is not yet compiled.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/clock_divider.vhd" Line 28: &lt;<arg fmt="%s" index="1">integer</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/clock_divider.vhd" Line 35: &lt;<arg fmt="%s" index="1">count</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/clock_divider.vhd" Line 37: &lt;<arg fmt="%s" index="1">count</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/clock_divider.vhd" Line 34: &lt;<arg fmt="%s" index="1">count</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/clock_divider.vhd" Line 41: &lt;<arg fmt="%s" index="1">clk_out</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/clock_divider.vhd" Line 43: &lt;<arg fmt="%s" index="1">clk_out</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/clock_divider.vhd" Line 44: Syntax error near &quot;<arg fmt="%s" index="1">;</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="unknown" >"/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/clock_divider.vhd" Line 40: &lt;<arg fmt="%s" index="1">count</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/clock_divider.vhd" Line 46: Syntax error near &quot;<arg fmt="%s" index="1">process</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="841" delta="unknown" >"/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/clock_divider.vhd" Line 48: Expecting type <arg fmt="%s" index="2"> void</arg> for &lt;<arg fmt="%s" index="1">clock_divider</arg>&gt;.
+</msg>
+
+</messages>
+
