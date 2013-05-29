@@ -1,0 +1,14 @@
+EN loader NULL /home/daiane/black-jack/loader.vhd sub00/vhpl08 1369782283
+EN trigger NULL /home/daiane/black-jack/trigger.vhd sub00/vhpl12 1369782306
+EN card_deck NULL /home/daiane/black-jack/card_deck.vhd sub00/vhpl06 1369782014
+EN state_machine NULL /home/daiane/black-jack/state_machine.vhd sub00/vhpl10 1369782297
+AR state_machine state_machine /home/daiane/black-jack/state_machine.vhd sub00/vhpl11 1369782298
+AR decoder decoder /home/daiane/black-jack/decoder.vhd sub00/vhpl03 1369782269
+AR card_deck card_deck /home/daiane/black-jack/card_deck.vhd sub00/vhpl07 1369782015
+AR trigger trigger /home/daiane/black-jack/trigger.vhd sub00/vhpl13 1369782307
+EN bin_to_bcd NULL /home/daiane/black-jack/bin_to_bcd.vhd sub00/vhpl00 1369782266
+AR bin_to_bcd bin_to_bcd /home/daiane/black-jack/bin_to_bcd.vhd sub00/vhpl01 1369782267
+EN displayer NULL /home/daiane/black-jack/displayer.vhd sub00/vhpl04 1369782270
+AR displayer displayer /home/daiane/black-jack/displayer.vhd sub00/vhpl05 1369782271
+AR loader loader /home/daiane/black-jack/loader.vhd sub00/vhpl09 1369782284
+EN decoder NULL /home/daiane/black-jack/decoder.vhd sub00/vhpl02 1369782268

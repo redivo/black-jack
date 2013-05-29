@@ -1,0 +1,3 @@
+work	"bin_to_bcd.vhd"
+work	"decoder.vhd"
+work	"displayer.vhd"
