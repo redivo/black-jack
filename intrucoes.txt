@@ -1,0 +1,31 @@
+Topo do projeto:
+blackjack_top -> blackjack_top.vhd
+
+opções de instância da entidade topo
+blackjack: entity work.blackjack_top
+		generic map(CARDS_QNT => CARDS_QNT, --> quantidades de cartas no baralho no padrão std_logic_vector(5 downto 0)
+		            CATHODE   => CATHODE,   --> se os displays de saída possuem catodo comum '1', ou anodo comun '0'
+			        CLK_EDGE  => CLK_EDGE,  --> se o clock do projeto se baseia na borda de subida '1', ou borda de descida '0'
+			        RST_HILO  => RST_HILO)  --> se o reset é ativo alto '1', ou ativo baixo '0'
+		port map(clk    => clk,
+			     reset   => reset,
+			     stay    => stay,
+			     hit     => hit,
+			     show    => show,
+			     card    => card,
+			     win     => win,
+			     lose    => lose,
+			     tie     => tie,
+			     en0     => en0,
+			     en1     => en1,
+			     display => display);
+			     
+Restrições de ciclos:
+tirando o reset, evitar alterações de sinais de entrada exatamente na borda de clock do projeto
+
+reset de pelo menos um ciclo;
+esperar pelo menos um ciclo após baixar reset para começar a carregar todas as cartas (1 carta a cada ciclo);
+após carregar todas as cartas, esperar pelo menos 4 ciclos para hit ou stay ser identificado;
+um novo hit ou um stay só será processado após 2 ciclos depois de ser identificado um hit;
+resultado win, lose ou tie aparecerá somente após stay ser identificado e a quantidade de ciclos dependerá da sequência de cartas para o dealer chegar em 17
+
