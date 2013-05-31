@@ -1,0 +1,23 @@
+Command line:
+   black_jack_top_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  48765
+
+Fri May 31 00:18:34 2013
+
+
+ Elaboration Time: 0.05 sec
+
+ Current Memory Usage: 123.199 Meg
+
+ Total Signals          : 117
+ Total Nets             : 559
+ Total Signal Drivers   : 107
+ Total Blocks           : 12
+ Total Primitive Blocks : 9
+ Total Processes        : 74
+ Total Traceable Variables  : 23
+ Total Scalar Nets and Variables : 950
+In process card_deck.vhd:85 
+ 

@@ -10,13 +10,13 @@ library ieee;
     use ieee.std_logic_arith.all;
     use ieee.std_logic_unsigned.all;   
  
-entity jack_black_tb is
-end jack_black_tb;
+entity black_jack_top_tb is
+end black_jack_top_tb;
  
-architecture behavior of jack_black_tb is 
+architecture behavior of black_jack_top_tb is 
   
   -- Device Under Test (DUT) --> Project Top
-  component jack_black
+  component black_jack_top
   port(
     clk_in 		: in  std_logic;
     rst_in 		: in  std_logic;
@@ -66,7 +66,7 @@ architecture behavior of jack_black_tb is
 begin
  
   -- Instantiate the DUT
-  dut: jack_black 
+  dut: black_jack_top
   port map (
     clk_in   => clk_in,
     rst_in   => rst_in,
