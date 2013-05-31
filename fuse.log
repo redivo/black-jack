@@ -1,10 +1,21 @@
-Running: /opt/Xilinx/13.4/ISE_DS/ISE/bin/lin/unwrapped/fuse -intstyle ise -incremental -o /media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger_isim_beh.exe -prj /media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger_beh.prj work.trigger 
-ISim O.87xd (signature 0x8ddf5b5d)
-Number of CPUs detected in this system: 4
-Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Running: /opt/Xilinx/14.5/ISE_DS/ISE/bin/lin/unwrapped/fuse -intstyle ise -incremental -o /home/daiane/black-jack/state_machine_isim_beh.exe -prj /home/daiane/black-jack/state_machine_beh.prj work.state_machine 
+ISim P.58f (signature 0xfbc00daa)
+Number of CPUs detected in this system: 2
+Turning on mult-threading, number of parallel sub-compilation jobs: 4 
 Determining compilation order of HDL files
-Parsing VHDL file "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger.vhd" into library work
-ERROR:HDLCompiler:806 - "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger.vhd" Line 71: Syntax error near "=".
-ERROR:HDLCompiler:806 - "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger.vhd" Line 73: Syntax error near "=".
-ERROR:HDLCompiler:854 - "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger.vhd" Line 43: Unit <behavioral> ignored due to previous errors.
-VHDL file /media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack/trigger.vhd ignored due to errors
+Parsing VHDL file "/home/daiane/black-jack/state_machine.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 37096 KB
+Fuse CPU Usage: 1890 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling architecture state_machine of entity state_machine
+Time Resolution for simulation is 1ps.
+Compiled 5 VHDL Units
+Built simulation executable /home/daiane/black-jack/state_machine_isim_beh.exe
+Fuse Memory Usage: 83000 KB
+Fuse CPU Usage: 2020 ms
+GCC CPU Usage: 420 ms

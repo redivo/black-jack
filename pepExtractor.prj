@@ -1,3 +1,1 @@
-work	"bin_to_bcd.vhd"
-work	"decoder.vhd"
-work	"displayer.vhd"
+work	"state_machine.vhd"

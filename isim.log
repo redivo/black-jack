@@ -1,0 +1,17 @@
+ISim log file
+Running: /home/daiane/black-jack/state_machine_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/daiane/black-jack/state_machine_isim_beh.wdb 
+INFO: There is another simulation running in the same directory. Using database file name isim2.wdb.
+ISim P.58f (signature 0xfbc00daa)
+----------------------------------------------------------------------
+INFO:Security:65 - Your license for 'ISIM' is for trial use only.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# exit 0

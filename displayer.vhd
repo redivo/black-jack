@@ -47,7 +47,7 @@ begin
 	);
 
 	-- multiplexer displays
-	process(clk_in, data_in)
+	process(clk_in, data_in, rst_in)
 	begin
 
 		bin <= data_in;
