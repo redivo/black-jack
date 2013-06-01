@@ -1,38 +1,25 @@
-Running: /opt/Xilinx/14.5/ISE_DS/ISE/bin/lin/unwrapped/fuse -intstyle ise -incremental -o /home/daiane/black-jack/black_jack_top_tb_isim_beh.exe -prj /home/daiane/black-jack/black_jack_top_tb_beh.prj work.black_jack_top_tb 
+Running: /opt/Xilinx/14.5/ISE_DS/ISE/bin/lin/unwrapped/fuse -intstyle ise -incremental -o /home/daiane/black-jack/top_tb_isim_beh.exe -prj /home/daiane/black-jack/top_tb_beh.prj work.top_tb 
 ISim P.58f (signature 0xfbc00daa)
 Number of CPUs detected in this system: 2
 Turning on mult-threading, number of parallel sub-compilation jobs: 4 
 Determining compilation order of HDL files
-Parsing VHDL file "/home/daiane/black-jack/decoder.vhd" into library work
-Parsing VHDL file "/home/daiane/black-jack/bin_to_bcd.vhd" into library work
-Parsing VHDL file "/home/daiane/black-jack/trigger.vhd" into library work
 Parsing VHDL file "/home/daiane/black-jack/state_machine.vhd" into library work
-Parsing VHDL file "/home/daiane/black-jack/loader.vhd" into library work
-Parsing VHDL file "/home/daiane/black-jack/displayer.vhd" into library work
 Parsing VHDL file "/home/daiane/black-jack/card_deck.vhd" into library work
-Parsing VHDL file "/home/daiane/black-jack/black_jack_top.vhd" into library work
-Parsing VHDL file "/home/daiane/black-jack/black_jack_top_tb.vhd" into library work
+Parsing VHDL file "/home/daiane/black-jack/tb.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 37240 KB
-Fuse CPU Usage: 1930 ms
+Fuse Memory Usage: 37104 KB
+Fuse CPU Usage: 1890 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package std_logic_arith
 Compiling package std_logic_unsigned
-Compiling architecture bin_to_bcd of entity bin_to_bcd [bin_to_bcd_default]
-Compiling architecture decoder of entity decoder [decoder_default]
-Compiling architecture displayer of entity displayer [displayer_default]
-Compiling architecture loader of entity loader [loader_default]
-Compiling architecture trigger of entity trigger [trigger_default]
 Compiling architecture state_machine of entity state_machine [state_machine_default]
-Compiling architecture behavior of entity black_jack_top [black_jack_top_default]
 Compiling architecture card_deck of entity card_deck [card_deck_default]
-Compiling architecture behavior of entity black_jack_top_tb
+Compiling architecture top_tb of entity top_tb
 Time Resolution for simulation is 1ps.
-Waiting for 6 sub-compilation(s) to finish...
-Compiled 21 VHDL Units
-Built simulation executable /home/daiane/black-jack/black_jack_top_tb_isim_beh.exe
-Fuse Memory Usage: 83248 KB
-Fuse CPU Usage: 2100 ms
-GCC CPU Usage: 1220 ms
+Compiled 9 VHDL Units
+Built simulation executable /home/daiane/black-jack/top_tb_isim_beh.exe
+Fuse Memory Usage: 83084 KB
+Fuse CPU Usage: 2040 ms
+GCC CPU Usage: 720 ms

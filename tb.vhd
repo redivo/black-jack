@@ -15,7 +15,7 @@ use ieee.std_logic_unsigned.all;
 --------------------------
 -- entity
 --------------------------
-entity bcd_decoder_tb is
+entity top_tb is
 
 generic
 (
@@ -25,13 +25,13 @@ port
 (
 	error		: out std_logic_vector(7 downto 0)
 );
-	end bcd_decoder_tb;
+	end top_tb;
 
 
 	--------------------------
 	-- architecture
 	--------------------------
-architecture bcd_decoder_tb of bcd_decoder_tb is
+architecture top_tb of top_tb is
 
 	constant	PERIOD		: time := 20 ns;	-- Clock: 100MHz
 	constant	PUSH_TIME	: time := 500 ms;
@@ -70,20 +70,27 @@ architecture bcd_decoder_tb of bcd_decoder_tb is
 	fsm: entity work.state_machine
 	port map
 	(
-		stay_in			=> stay_in_tb;
-		hit_in			=> hit_in_tb;
-		show_in			=> show_in_tb;
-		card_bd_ok_in	=> card_bd_ok_in_tb;
-		clk_in			=> clk_in_tb;
-		rst_in			=> rst_in_tb;
-		card_in			=> card_in_tb;
-		req_card_out	=> req_card_out_tb;
-		win_out			=> win_out_tb;
-		lose_out		=> lose_out_tb;
-		tie_out			=> tie_out_tb;
-		num_out			=> num_out_tb;
+		stay_in			=> stay_in_tb,
+		hit_in			=> hit_in_tb,
+		show_in			=> show_in_tb,
+		card_bd_ok_in	=> card_bd_ok_in_tb,
+		clk_in			=> clk_in_tb,
+		rst_in			=> rst_in_tb,
+		card_in			=> card_in_tb,
+		req_card_out	=> req_card_out_tb,
+		win_out			=> win_out_tb,
+		lose_out		=> lose_out_tb,
+		tie_out			=> tie_out_tb,
+		num_out			=> num_out_tb
 	);
 
+ -- Instantiate the card deck
+  deck: entity work.card_deck
+  port map (
+    clk      => clk_in_tb,
+    rst      => rst_in_tb,
+    card_out => card_in_tb
+  );
 	--------------------------
 	-- processes
 	--------------------------
@@ -130,4 +137,4 @@ architecture bcd_decoder_tb of bcd_decoder_tb is
 
 	end process;
 
-end fsm_tb;
+end top_tb;

@@ -1,50 +1,51 @@
 V3 30
-FL /home/daiane/black-jack/bin_to_bcd.vhd 2013/05/28.20:10:27 P.58f
-EN work/bin_to_bcd 1369970243 FL /home/daiane/black-jack/bin_to_bcd.vhd \
+FL /home/daiane/black-jack/bin_to_bcd.vhd 2013/06/01.11:49:42 P.58f
+EN work/bin_to_bcd 1370125267 FL /home/daiane/black-jack/bin_to_bcd.vhd \
       PB ieee/std_logic_1164 1364358218 PB ieee/std_logic_arith 1364358219 \
       PB ieee/STD_LOGIC_UNSIGNED 1364358221
-AR work/bin_to_bcd/bin_to_bcd 1369970244 \
-      FL /home/daiane/black-jack/bin_to_bcd.vhd EN work/bin_to_bcd 1369970243
-FL /home/daiane/black-jack/black_jack_top.vhd 2013/05/31.00:16:45 P.58f
-EN work/black_jack_top 1369970255 FL /home/daiane/black-jack/black_jack_top.vhd \
+AR work/bin_to_bcd/bin_to_bcd 1370125268 \
+      FL /home/daiane/black-jack/bin_to_bcd.vhd EN work/bin_to_bcd 1370125267
+FL /home/daiane/black-jack/black_jack_top.vhd 2013/06/01.11:49:42 P.58f
+EN work/black_jack_top 1370125279 FL /home/daiane/black-jack/black_jack_top.vhd \
       PB ieee/std_logic_1164 1364358218 PB ieee/std_logic_arith 1364358219 \
       PB ieee/STD_LOGIC_UNSIGNED 1364358221
-AR work/black_jack_top/behavior 1369970256 \
-      FL /home/daiane/black-jack/black_jack_top.vhd EN work/black_jack_top 1369970255 \
+AR work/black_jack_top/behavior 1370125280 \
+      FL /home/daiane/black-jack/black_jack_top.vhd EN work/black_jack_top 1370125279 \
       CP displayer CP loader CP trigger CP state_machine
-FL /home/daiane/black-jack/card_deck.vhd 2013/05/28.19:32:22 P.58f
-EN work/card_deck 1369782014 FL /home/daiane/black-jack/card_deck.vhd \
-      PB ieee/std_logic_1164 1364358218
-AR work/card_deck/card_deck 1369782015 \
-      FL /home/daiane/black-jack/card_deck.vhd EN work/card_deck 1369782014
-FL /home/daiane/black-jack/decoder.vhd 2013/05/24.19:04:24 P.58f
-EN work/decoder 1369970245 FL /home/daiane/black-jack/decoder.vhd \
+FL /home/daiane/black-jack/card_deck.vhd 2013/06/01.19:20:28 P.58f
+EN work/card_deck 1370125252 FL /home/daiane/black-jack/card_deck.vhd \
       PB ieee/std_logic_1164 1364358218 PB ieee/std_logic_arith 1364358219 \
       PB ieee/STD_LOGIC_UNSIGNED 1364358221
-AR work/decoder/decoder 1369970246 \
-      FL /home/daiane/black-jack/decoder.vhd EN work/decoder 1369970245
-FL /home/daiane/black-jack/displayer.vhd 2013/05/30.20:01:07 P.58f
-EN work/displayer 1369970247 FL /home/daiane/black-jack/displayer.vhd \
+AR work/card_deck/card_deck 1370125253 \
+      FL /home/daiane/black-jack/card_deck.vhd EN work/card_deck 1370125252
+FL /home/daiane/black-jack/decoder.vhd 2013/06/01.11:49:42 P.58f
+EN work/decoder 1370125269 FL /home/daiane/black-jack/decoder.vhd \
       PB ieee/std_logic_1164 1364358218 PB ieee/std_logic_arith 1364358219 \
       PB ieee/STD_LOGIC_UNSIGNED 1364358221
-AR work/displayer/displayer 1369970248 \
-      FL /home/daiane/black-jack/displayer.vhd EN work/displayer 1369970247 \
+AR work/decoder/decoder 1370125270 \
+      FL /home/daiane/black-jack/decoder.vhd EN work/decoder 1370125269
+FL /home/daiane/black-jack/displayer.vhd 2013/06/01.11:49:42 P.58f
+EN work/displayer 1370125271 FL /home/daiane/black-jack/displayer.vhd \
+      PB ieee/std_logic_1164 1364358218 PB ieee/std_logic_arith 1364358219 \
+      PB ieee/STD_LOGIC_UNSIGNED 1364358221
+AR work/displayer/displayer 1370125272 \
+      FL /home/daiane/black-jack/displayer.vhd EN work/displayer 1370125271 \
       CP work/bin_to_bcd CP work/decoder
-FL /home/daiane/black-jack/loader.vhd 2013/05/30.20:15:46 P.58f
-EN work/loader 1369970249 FL /home/daiane/black-jack/loader.vhd \
+FL /home/daiane/black-jack/loader.vhd 2013/06/01.11:49:42 P.58f
+EN work/loader 1370125273 FL /home/daiane/black-jack/loader.vhd \
       PB ieee/std_logic_1164 1364358218 PB ieee/std_logic_arith 1364358219 \
       PB ieee/STD_LOGIC_UNSIGNED 1364358221
-AR work/loader/loader 1369970250 \
-      FL /home/daiane/black-jack/loader.vhd EN work/loader 1369970249
-FL /home/daiane/black-jack/state_machine.vhd 2013/05/28.20:09:50 P.58f
-EN work/state_machine 1369970253 FL /home/daiane/black-jack/state_machine.vhd \
+AR work/loader/loader 1370125274 \
+      FL /home/daiane/black-jack/loader.vhd EN work/loader 1370125273
+FL /home/daiane/black-jack/state_machine.vhd 2013/06/01.11:49:42 P.58f
+EN work/state_machine 1370125277 FL /home/daiane/black-jack/state_machine.vhd \
       PB ieee/std_logic_1164 1364358218 PB ieee/std_logic_arith 1364358219 \
       PB ieee/STD_LOGIC_UNSIGNED 1364358221
-AR work/state_machine/state_machine 1369970254 \
-      FL /home/daiane/black-jack/state_machine.vhd EN work/state_machine 1369970253
-FL /home/daiane/black-jack/trigger.vhd 2013/05/28.20:11:43 P.58f
-EN work/trigger 1369970251 FL /home/daiane/black-jack/trigger.vhd \
+AR work/state_machine/state_machine 1370125278 \
+      FL /home/daiane/black-jack/state_machine.vhd EN work/state_machine 1370125277
+FL /home/daiane/black-jack/trigger.vhd 2013/06/01.11:49:42 P.58f
+EN work/trigger 1370125275 FL /home/daiane/black-jack/trigger.vhd \
       PB ieee/std_logic_1164 1364358218 PB ieee/std_logic_arith 1364358219 \
       PB ieee/STD_LOGIC_UNSIGNED 1364358221
-AR work/trigger/trigger 1369970252 \
-      FL /home/daiane/black-jack/trigger.vhd EN work/trigger 1369970251
+AR work/trigger/trigger 1370125276 \
+      FL /home/daiane/black-jack/trigger.vhd EN work/trigger 1370125275

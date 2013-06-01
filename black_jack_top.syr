@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> 
 Reading design: black_jack_top.prj
@@ -120,8 +120,7 @@ Architecture trigger of Entity trigger is up to date.
 Compiling vhdl file "/home/daiane/black-jack/state_machine.vhd" in Library work.
 Architecture state_machine of Entity state_machine is up to date.
 Compiling vhdl file "/home/daiane/black-jack/black_jack_top.vhd" in Library work.
-Entity <black_jack_top> compiled.
-Entity <black_jack_top> (Architecture <behavior>) compiled.
+Architecture behavior of Entity black_jack_top is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -526,13 +525,13 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.54 secs
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 6.95 secs
  
 --> 
 
 
-Total memory usage is 168376 kilobytes
+Total memory usage is 168384 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   72 (   0 filtered)
