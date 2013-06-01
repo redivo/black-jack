@@ -22,7 +22,6 @@ type card_bank is array(51 downto 0) of std_logic_vector(3 downto 0);
 
 signal sig_card_out : std_logic_vector(3 downto 0);
 signal card : card_bank;
-signal counter : integer;
 
 constant NUMBER_OF_CARDS : integer := 52;
 
@@ -83,11 +82,12 @@ begin
 	-- end of paste
 
 	process (clk, rst)
+	variable counter : integer;
 	begin
 		if (clk'event and clk = '1') then
       if rst = '1' then
         counter <= 0;
-      elsif counter < NUMBER_OF_CARDS then
+      elsif counter < NUMBER_OF_CARDS and counter >= 0 then
 				sig_card_out <= card(counter);
 				counter <= counter + 1;
 			else
