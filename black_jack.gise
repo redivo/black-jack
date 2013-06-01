@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="black_jack.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name=".lso"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="black_jack_top.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="black_jack_top.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="black_jack_top.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="black_jack_top.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="black_jack_top.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="black_jack_top.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="black_jack_top.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="black_jack_top.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="black_jack_top.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="black_jack_top.xst"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="black_jack_top_isim_beh.exe"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="black_jack_top_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="black_jack_top_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="black_jack_top_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="black_jack_top_stx_beh.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="black_jack_top_tb_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="black_jack_top_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="black_jack_top_tb_isim_beh.wdb"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="black_jack_top_tb_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="black_jack_top_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="card_deck.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="card_deck.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="card_deck.xst"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="displayer.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="displayer.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="displayer.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="displayer.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="displayer.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="displayer.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="displayer.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="displayer.xst"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="displayer_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="displayer_summary.html"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="displayer_tb_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="displayer_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="jack_black_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="jack_black_tb_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="loader.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="loader.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="loader.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="state_machine.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="state_machine.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="state_machine.xst"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="state_machine_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="state_machine_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="trigger.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="trigger.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="trigger.xst"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1369782468" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1369782468">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1369970207" xil_pn:in_ck="-5954754694702009367" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1369970207">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="bin_to_bcd.vhd"/>
+      <outfile xil_pn:name="black_jack_top.vhd"/>
+      <outfile xil_pn:name="black_jack_top_tb.vhd"/>
+      <outfile xil_pn:name="card_deck.vhd"/>
+      <outfile xil_pn:name="decoder.vhd"/>
+      <outfile xil_pn:name="displayer.vhd"/>
+      <outfile xil_pn:name="loader.vhd"/>
+      <outfile xil_pn:name="state_machine.vhd"/>
+      <outfile xil_pn:name="trigger.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1369969339" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="4722691401418895314" xil_pn:start_ts="1369969339">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1369969339" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-4972081721014733350" xil_pn:start_ts="1369969339">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1369967737" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-48870210084445174" xil_pn:start_ts="1369967737">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1369970216" xil_pn:in_ck="-5954754694702009367" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1369970216">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="bin_to_bcd.vhd"/>
+      <outfile xil_pn:name="black_jack_top.vhd"/>
+      <outfile xil_pn:name="black_jack_top_tb.vhd"/>
+      <outfile xil_pn:name="card_deck.vhd"/>
+      <outfile xil_pn:name="decoder.vhd"/>
+      <outfile xil_pn:name="displayer.vhd"/>
+      <outfile xil_pn:name="loader.vhd"/>
+      <outfile xil_pn:name="state_machine.vhd"/>
+      <outfile xil_pn:name="trigger.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1369970220" xil_pn:in_ck="-5954754694702009367" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1801038403740789634" xil_pn:start_ts="1369970216">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="black_jack_top_tb_beh.prj"/>
+      <outfile xil_pn:name="black_jack_top_tb_isim_beh.exe"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
+    </transform>
+    <transform xil_pn:end_ts="1369970311" xil_pn:in_ck="2512760955309490341" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="778796768917326767" xil_pn:start_ts="1369970311">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="black_jack_top_tb_isim_beh.wdb"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
+    </transform>
+    <transform xil_pn:end_ts="1369780617" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1369780617">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1369955104" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-2081311874845825531" xil_pn:start_ts="1369955104">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1369955104" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-48870210084445174" xil_pn:start_ts="1369955104">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1369780617" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1369780617">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1369955104" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-6621295143243580195" xil_pn:start_ts="1369955104">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1369780617" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="4579864356909105523" xil_pn:start_ts="1369780617">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1369955104" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="4757643968809844628" xil_pn:start_ts="1369955104">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1369970249" xil_pn:in_ck="-3258461880969938659" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-2415551013712855343" xil_pn:start_ts="1369970236">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name=".lso"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="black_jack_top.lso"/>
+      <outfile xil_pn:name="black_jack_top.ngc"/>
+      <outfile xil_pn:name="black_jack_top.ngr"/>
+      <outfile xil_pn:name="black_jack_top.prj"/>
+      <outfile xil_pn:name="black_jack_top.stx"/>
+      <outfile xil_pn:name="black_jack_top.syr"/>
+      <outfile xil_pn:name="black_jack_top.xst"/>
+      <outfile xil_pn:name="black_jack_top_stx_beh.prj"/>
+      <outfile xil_pn:name="black_jack_top_tb_beh.prj"/>
+      <outfile xil_pn:name="black_jack_top_tb_stx_beh.prj"/>
+      <outfile xil_pn:name="black_jack_top_xst.xrpt"/>
+      <outfile xil_pn:name="displayer.ngr"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1369970279" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-6686017326165836174" xil_pn:start_ts="1369970279">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1369970289" xil_pn:in_ck="7779208979840497952" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-6706807787239108031" xil_pn:start_ts="1369970279">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="black_jack_top.bld"/>
+      <outfile xil_pn:name="black_jack_top.ngd"/>
+      <outfile xil_pn:name="black_jack_top_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1369970296" xil_pn:in_ck="-3912076103794655922" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-5706167834589782188" xil_pn:start_ts="1369970289">
+      <status xil_pn:value="FailedRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="black_jack_top_map.map"/>
+      <outfile xil_pn:name="black_jack_top_map.mrp"/>
+    </transform>
+  </transforms>
+
+</generated_project>

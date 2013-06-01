@@ -1,0 +1,540 @@
+Release 14.5 - xst P.58f (lin)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> 
+Reading design: black_jack_top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "black_jack_top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "black_jack_top"
+Output Format                      : NGC
+Target Device                      : xc3s700a-4-fg484
+
+---- Source Options
+Top Module Name                    : black_jack_top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/home/daiane/black-jack/bin_to_bcd.vhd" in Library work.
+Architecture bin_to_bcd of Entity bin_to_bcd is up to date.
+Compiling vhdl file "/home/daiane/black-jack/decoder.vhd" in Library work.
+Architecture decoder of Entity decoder is up to date.
+Compiling vhdl file "/home/daiane/black-jack/displayer.vhd" in Library work.
+Architecture displayer of Entity displayer is up to date.
+Compiling vhdl file "/home/daiane/black-jack/loader.vhd" in Library work.
+Architecture loader of Entity loader is up to date.
+Compiling vhdl file "/home/daiane/black-jack/trigger.vhd" in Library work.
+Architecture trigger of Entity trigger is up to date.
+Compiling vhdl file "/home/daiane/black-jack/state_machine.vhd" in Library work.
+Architecture state_machine of Entity state_machine is up to date.
+Compiling vhdl file "/home/daiane/black-jack/black_jack_top.vhd" in Library work.
+Entity <black_jack_top> compiled.
+Entity <black_jack_top> (Architecture <behavior>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <black_jack_top> in library <work> (architecture <behavior>).
+
+Analyzing hierarchy for entity <displayer> in library <work> (architecture <displayer>).
+
+Analyzing hierarchy for entity <loader> in library <work> (architecture <loader>).
+
+Analyzing hierarchy for entity <trigger> in library <work> (architecture <trigger>).
+
+Analyzing hierarchy for entity <state_machine> in library <work> (architecture <state_machine>).
+
+Analyzing hierarchy for entity <bin_to_bcd> in library <work> (architecture <bin_to_bcd>).
+
+Analyzing hierarchy for entity <decoder> in library <work> (architecture <decoder>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <black_jack_top> in library <work> (Architecture <behavior>).
+Entity <black_jack_top> analyzed. Unit <black_jack_top> generated.
+
+Analyzing Entity <displayer> in library <work> (Architecture <displayer>).
+WARNING:Xst:819 - "/home/daiane/black-jack/displayer.vhd" line 50: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <number_out>
+Entity <displayer> analyzed. Unit <displayer> generated.
+
+Analyzing Entity <bin_to_bcd> in library <work> (Architecture <bin_to_bcd>).
+Entity <bin_to_bcd> analyzed. Unit <bin_to_bcd> generated.
+
+Analyzing Entity <decoder> in library <work> (Architecture <decoder>).
+Entity <decoder> analyzed. Unit <decoder> generated.
+
+Analyzing Entity <loader> in library <work> (Architecture <loader>).
+INFO:Xst:1432 - Contents of array <card> may be accessed with a negative index, causing simulation mismatch.
+INFO:Xst:1433 - Contents of array <card> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+INFO:Xst:1432 - Contents of array <card> may be accessed with a negative index, causing simulation mismatch.
+INFO:Xst:1433 - Contents of array <card> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+Entity <loader> analyzed. Unit <loader> generated.
+
+Analyzing Entity <trigger> in library <work> (Architecture <trigger>).
+Entity <trigger> analyzed. Unit <trigger> generated.
+
+Analyzing Entity <state_machine> in library <work> (Architecture <state_machine>).
+Entity <state_machine> analyzed. Unit <state_machine> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <loader>.
+    Related source file is "/home/daiane/black-jack/loader.vhd".
+WARNING:Xst:1305 - Output <card_out> is never assigned. Tied to value 0000.
+WARNING:Xst:1305 - Output <load_ok_out> is never assigned. Tied to value 0.
+WARNING:Xst:646 - Signal <sig_card_out> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 32-bit up counter for signal <counter>.
+    Found 32-bit comparator less for signal <counter$cmp_lt0000> created at line 61.
+    Found 1-bit register for signal <sig_load_ok_out>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <loader> synthesized.
+
+
+Synthesizing Unit <trigger>.
+    Related source file is "/home/daiane/black-jack/trigger.vhd".
+WARNING:Xst:646 - Signal <stay_pressed_out> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 32-bit up counter for signal <hit_hysteresis>.
+    Found 1-bit register for signal <hit_pressed_out>.
+    Found 1-bit register for signal <sig_hit_out>.
+    Found 1-bit register for signal <sig_stay_out>.
+    Found 32-bit up counter for signal <stay_hysteresis>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   3 D-type flip-flop(s).
+Unit <trigger> synthesized.
+
+
+Synthesizing Unit <state_machine>.
+    Related source file is "/home/daiane/black-jack/state_machine.vhd".
+    Found finite state machine <FSM_0> for signal <State>.
+    -----------------------------------------------------------------------
+    | States             | 9                                              |
+    | Transitions        | 20                                             |
+    | Inputs             | 11                                             |
+    | Outputs            | 8                                              |
+    | Clock              | clk_in                    (rising_edge)        |
+    | Reset              | rst_in                    (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00000000000000000000000000000000               |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 5-bit register for signal <card_counter>.
+    Found 5-bit adder for signal <card_counter$addsub0000> created at line 94.
+    Found 5-bit register for signal <dealer_points>.
+    Found 5-bit adder for signal <dealer_points$share0000> created at line 65.
+    Found 1-bit register for signal <dealer_turn>.
+    Found 5-bit register for signal <player_points>.
+    Found 5-bit adder for signal <player_points$share0000> created at line 65.
+    Found 1-bit register for signal <sig_lose_out>.
+    Found 5-bit register for signal <sig_num_out>.
+    Found 1-bit register for signal <sig_req_card_out>.
+    Found 1-bit register for signal <sig_tie_out>.
+    Found 5-bit comparator greater for signal <sig_tie_out$cmp_gt0000> created at line 137.
+    Found 5-bit comparator greater for signal <sig_tie_out$cmp_gt0001> created at line 138.
+    Found 6-bit comparator greater for signal <sig_tie_out$cmp_gt0002> created at line 149.
+    Found 6-bit comparator lessequal for signal <sig_tie_out$cmp_le0000> created at line 155.
+    Found 1-bit register for signal <sig_win_out>.
+    Found 6-bit comparator less for signal <State$cmp_lt0000> created at line 86.
+    Found 6-bit comparator less for signal <State$cmp_lt0001> created at line 87.
+    Found 6-bit comparator less for signal <State$cmp_lt0002> created at line 134.
+    Found 6-bit comparator less for signal <State$cmp_lt0003> created at line 134.
+    Found 6-bit comparator less for signal <State$cmp_lt0004> created at line 136.
+    Found 1-bit register for signal <stoped>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  26 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred   9 Comparator(s).
+Unit <state_machine> synthesized.
+
+
+Synthesizing Unit <bin_to_bcd>.
+    Related source file is "/home/daiane/black-jack/bin_to_bcd.vhd".
+WARNING:Xst:646 - Signal <sig_temp<4>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 5-bit subtractor for signal <sig_temp$addsub0000>.
+    Found 5-bit comparator less for signal <ten_out$cmp_lt0000> created at line 28.
+    Found 5-bit comparator less for signal <ten_out$cmp_lt0001> created at line 28.
+    Found 5-bit comparator less for signal <ten_out$cmp_lt0002> created at line 28.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   3 Comparator(s).
+Unit <bin_to_bcd> synthesized.
+
+
+Synthesizing Unit <decoder>.
+    Related source file is "/home/daiane/black-jack/decoder.vhd".
+    Found 16x8-bit ROM for signal <bcd_out>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <decoder> synthesized.
+
+
+Synthesizing Unit <displayer>.
+    Related source file is "/home/daiane/black-jack/displayer.vhd".
+    Found 1-bit register for signal <en1_out>.
+    Found 1-bit register for signal <en0_out>.
+    Found 1-bit register for signal <enable>.
+    Found 4-bit register for signal <number>.
+    Summary:
+	inferred   7 D-type flip-flop(s).
+Unit <displayer> synthesized.
+
+
+Synthesizing Unit <black_jack_top>.
+    Related source file is "/home/daiane/black-jack/black_jack_top.vhd".
+WARNING:Xst:647 - Input <clk_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <show_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <en1_out> is never assigned.
+WARNING:Xst:647 - Input <hit_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <tie_out> is never assigned.
+WARNING:Xst:1306 - Output <win_out> is never assigned.
+WARNING:Xst:647 - Input <stay_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <rst_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <lose_out> is never assigned.
+WARNING:Xst:1306 - Output <num_out> is never assigned.
+WARNING:Xst:647 - Input <card_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <en0_out> is never assigned.
+WARNING:Xst:646 - Signal <sig_win_out> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_tie_out> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <sig_stay_to_trig> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:653 - Signal <sig_show_to_trig> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:653 - Signal <sig_rst> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:646 - Signal <sig_lose_out> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <sig_hit_to_trig> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:646 - Signal <sig_en1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_en0> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sig_dig_to_disp> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <sig_clk> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:653 - Signal <sig_card_to_loader> is used but never assigned. This sourceless signal will be automatically connected to value 0000.
+Unit <black_jack_top> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 16x8-bit ROM                                          : 1
+# Adders/Subtractors                                   : 4
+ 5-bit adder                                           : 3
+ 5-bit subtractor                                      : 1
+# Counters                                             : 3
+ 32-bit up counter                                     : 3
+# Registers                                            : 18
+ 1-bit register                                        : 13
+ 4-bit register                                        : 1
+ 5-bit register                                        : 4
+# Comparators                                          : 13
+ 32-bit comparator less                                : 1
+ 5-bit comparator greater                              : 2
+ 5-bit comparator less                                 : 3
+ 6-bit comparator greater                              : 1
+ 6-bit comparator less                                 : 5
+ 6-bit comparator lessequal                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <fsm/State/FSM> on signal <State[1:9]> with one-hot encoding.
+-----------------------------------------------
+ State                            | Encoding
+-----------------------------------------------
+ 00000000000000000000000000000000 | 000000001
+ 00000000000000000000000000000001 | 000000010
+ 00000000000000000000000000000010 | 000000100
+ 00000000000000000000000000000011 | 000001000
+ 00000000000000000000000000000100 | 010000000
+ 00000000000000000000000000000101 | 001000000
+ 00000000000000000000000000000110 | 000100000
+ 00000000000000000000000000000111 | 000010000
+ 00000000000000000000000000001000 | 100000000
+-----------------------------------------------
+WARNING:Xst:1290 - Hierarchical block <disp> is unconnected in block <black_jack_top>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <load> is unconnected in block <black_jack_top>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <trig> is unconnected in block <black_jack_top>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <fsm> is unconnected in block <black_jack_top>.
+   It will be removed from the design.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# ROMs                                                 : 1
+ 16x8-bit ROM                                          : 1
+# Adders/Subtractors                                   : 4
+ 4-bit subtractor                                      : 1
+ 5-bit adder                                           : 3
+# Counters                                             : 2
+ 32-bit up counter                                     : 2
+# Registers                                            : 36
+ Flip-Flops                                            : 36
+# Comparators                                          : 12
+ 5-bit comparator greater                              : 2
+ 5-bit comparator less                                 : 3
+ 6-bit comparator greater                              : 1
+ 6-bit comparator less                                 : 5
+ 6-bit comparator lessequal                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <hit_pressed_out> (without init value) has a constant value of 1 in block <trigger>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sig_stay_out> (without init value) has a constant value of 0 in block <trigger>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sig_hit_out> (without init value) has a constant value of 0 in block <trigger>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sig_num_out_4> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sig_num_out_3> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sig_num_out_2> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sig_num_out_1> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sig_num_out_0> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sig_lose_out> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <player_points_4> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <player_points_3> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <player_points_2> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <player_points_1> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <player_points_0> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dealer_turn> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dealer_points_4> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dealer_points_3> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dealer_points_2> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dealer_points_1> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dealer_points_0> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sig_req_card_out> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sig_win_out> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <stoped> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <sig_tie_out> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <card_counter_4> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <card_counter_3> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <card_counter_2> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <card_counter_1> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <card_counter_0> (without init value) has a constant value of 0 in block <state_machine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1426 - The value init of the FF/Latch en0_out hinder the constant cleaning in the block displayer.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1710 - FF/Latch <en1_out> (without init value) has a constant value of 0 in block <displayer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <en0_out> (without init value) has a constant value of 0 in block <displayer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <enable> (without init value) has a constant value of 0 in block <displayer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <number_0> (without init value) has a constant value of 1 in block <displayer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <number_1> (without init value) has a constant value of 1 in block <displayer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <number_2> (without init value) has a constant value of 1 in block <displayer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <number_3> (without init value) has a constant value of 1 in block <displayer>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1899 - Due to constant pushing, all outputs of the instance <bin_bcd> of the block <bin_to_bcd> are unconnected in block <displayer>.
+   This instance will be removed from the design along with all underlying logic
+
+Optimizing unit <black_jack_top> ...
+
+Optimizing unit <bin_to_bcd> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block black_jack_top, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : black_jack_top.ngr
+Top Level Output File Name         : black_jack_top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 22
+
+Cell Usage :
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s700afg484-4 
+
+ Number of Slices:                        0  out of   5888     0%  
+ Number of IOs:                          22
+ Number of bonded IOBs:                   0  out of    372     0%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 6.54 secs
+ 
+--> 
+
+
+Total memory usage is 168376 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   72 (   0 filtered)
+Number of infos    :    5 (   0 filtered)
+

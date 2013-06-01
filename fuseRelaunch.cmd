@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "/home/daiane/black-jack/black_jack_top_tb_isim_beh.exe" -prj "/home/daiane/black-jack/black_jack_top_tb_beh.prj" "work.black_jack_top_tb" 

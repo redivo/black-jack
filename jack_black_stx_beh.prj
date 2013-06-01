@@ -1,0 +1,7 @@
+vhdl isim_temp "decoder.vhd"
+vhdl isim_temp "bin_to_bcd.vhd"
+vhdl isim_temp "trigger.vhd"
+vhdl isim_temp "state_machine.vhd"
+vhdl isim_temp "loader.vhd"
+vhdl isim_temp "displayer.vhd"
+vhdl isim_temp "jack_black.vhd"

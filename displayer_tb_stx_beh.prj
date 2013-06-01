@@ -1,0 +1,4 @@
+vhdl isim_temp "decoder.vhd"
+vhdl isim_temp "bin_to_bcd.vhd"
+vhdl isim_temp "displayer.vhd"
+vhdl isim_temp "displayer_tb.vhd"
