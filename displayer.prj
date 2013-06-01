@@ -1,3 +1,0 @@
-vhdl work "decoder.vhd"
-vhdl work "bin_to_bcd.vhd"
-vhdl work "displayer.vhd"

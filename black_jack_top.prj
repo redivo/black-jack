@@ -1,7 +1,0 @@
-vhdl work "decoder.vhd"
-vhdl work "bin_to_bcd.vhd"
-vhdl work "trigger.vhd"
-vhdl work "state_machine.vhd"
-vhdl work "loader.vhd"
-vhdl work "displayer.vhd"
-vhdl work "black_jack_top.vhd"
