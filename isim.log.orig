@@ -1,0 +1,46 @@
+ISim log file
+<<<<<<< Updated upstream
+Running: /home/daiane/black-jack/top_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/daiane/black-jack/top_tb_isim_beh.wdb 
+=======
+Running: /media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack_top_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/black_jack_top_tb_isim_beh.wdb 
+>>>>>>> Stashed changes
+ISim P.58f (signature 0xfbc00daa)
+This is a Full version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+<<<<<<< Updated upstream
+Finished circuit initialization process.
+# run 500ms
+=======
+at 0 ps, Instance /black_jack_top_tb/dut/disp/bin_bcd/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+Finished circuit initialization process.
+# restart
+# run 500 ms
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run 500 ms
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+Stopped at time : 379150275 ns : File "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/displayer.vhd" Line 65
+# step
+Stopped at time : 379150275 ns : File "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/displayer.vhd" Line 74
+# step
+Stopped at time : 379150275 ns : File "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/loader.vhd" Line 41
+# step
+Stopped at time : 379150275 ns : File "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/loader.vhd" Line 42
+# step
+Stopped at time : 379150275 ns : File "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/loader.vhd" Line 54
+# step
+Stopped at time : 379150275 ns : File "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/loader.vhd" Line 66
+# step
+Stopped at time : 379150275 ns : File "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/trigger.vhd" Line 47
+# step
+Stopped at time : 379150275 ns : File "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/trigger.vhd" Line 49
+# step
+Stopped at time : 379150275 ns : File "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/trigger.vhd" Line 57
+>>>>>>> Stashed changes
+# exit 0

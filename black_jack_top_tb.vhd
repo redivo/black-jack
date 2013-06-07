@@ -15,12 +15,6 @@ end black_jack_top_tb;
  
 architecture behavior of black_jack_top_tb is 
   
-  constant	PERIOD		: time := 20 ns;	-- Clock: 100MHz
-	
-  constant	PUSH_TIME	: time := 500 ms;
-	constant	WAIT_TIME	: time := 2000 ms;
-	constant	SHOW_TIME	: time := 3000 ms;
-  
   -- Device Under Test (DUT) --> Project Top
   component black_jack_top
   port(
@@ -99,50 +93,38 @@ begin
   -- Generate clock
 	clk_in	<= not clk_in after (CLK_PERIOD/2);
  
-  -- Stimulus process
-  stim_proc: process
-  begin		
-    report "Stimulus process started"
-    severity note;
---    wait for 100 ns;	
---    report "Waiting for 52 clock cicles..."
---    severity note;
---    wait for 800 ms;
---    report "Initializing..."
---    severity note;
---    rst_in <= '1';
---    wait for CLK_PERIOD*2;
---    rst_in <= '0';
---    wait;
-    -- Push reset button
-		wait for WAIT_TIME;
-		rst_in <= '1';
-		wait for PUSH_TIME;
-		rst_in <= '0';
-
-		-- Push hit button
-		wait for WAIT_TIME;
-		hit_in <= '1';
-		wait for PUSH_TIME;
-		hit_in <= '0';
-
-		-- Push hit button again
-		wait for WAIT_TIME;
-		hit_in <= '1';
-		wait for PUSH_TIME;
-		hit_in <= '0';
-
-		-- Push stay button
-		wait for WAIT_TIME;
-		stay_in <= '1';
-		wait for PUSH_TIME;
-		stay_in <= '0';
-
-		-- Push show button
-		wait for WAIT_TIME;
-		show_in <= '1';
-		wait for SHOW_TIME;
-		show_in <= '0';
-
-  end process;
+	-- Stimulus process
+	stim_proc: process
+	begin		
+		-- Push reset
+		wait for 50 ms;
+		sig_rst_in <= '1';
+		wait for 20 ms;
+		sig_rst_in <= '0';
+		
+		-- Push hit
+		wait for 50 ms;
+		sig_hit_in <= '1';
+		wait for 20 ms;
+		sig_hit_in <= '0';
+		
+		-- Push hit again
+		wait for 50 ms;
+		sig_hit_in <= '1';
+		wait for 20 ms;
+		sig_hit_in <= '0';
+		
+		-- Push stay
+		wait for 50 ms;
+		sig_stay_in <= '1';
+		wait for 20 ms;
+		sig_stay_in <= '0';
+		
+		-- Push show
+		wait for 50 ms;
+		sig_show_in <= '1';
+		wait for 100 ms;
+		sig_show_in <= '0';
+		
+	end process;
 end;

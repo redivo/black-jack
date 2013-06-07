@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "/home/daiane/black-jack/trigger.vhd";
+static const char *ng0 = "/media/Arquivos/Documentos/PUC/2013-1/vls1/black-jack/trigger.vhd";
 
 
 
