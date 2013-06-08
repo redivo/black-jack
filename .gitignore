@@ -1,2 +1,2 @@
-work/*
-black-jack/*
+*
+!*.vhd
