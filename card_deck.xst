@@ -1,5 +1,0 @@
-set -tmpdir "/home/daiane/black-jack/xst/projnav.tmp"
-set -xsthdpdir "/home/daiane/black-jack/xst"
-elaborate
--ifn card_deck.prj
--ifmt mixed

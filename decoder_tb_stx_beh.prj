@@ -1,2 +1,0 @@
-vhdl isim_temp "decoder.vhd"
-vhdl isim_temp "decoder_tb.vhd"

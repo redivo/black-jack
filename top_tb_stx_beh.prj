@@ -1,3 +1,0 @@
-vhdl isim_temp "state_machine.vhd"
-vhdl isim_temp "card_deck.vhd"
-vhdl isim_temp "tb.vhd"

@@ -1,3 +1,0 @@
-vhdl work "state_machine.vhd"
-vhdl work "card_deck.vhd"
-vhdl work "tb.vhd"
