@@ -14,34 +14,6 @@ entity black_jack_top_tb is
 end black_jack_top_tb;
  
 architecture behavior of black_jack_top_tb is 
-  
-  -- Device Under Test (DUT) --> Project Top
-  component black_jack_top
-  port(
-    clk_in 		: in  std_logic;
-    rst_in 		: in  std_logic;
-    hit_in 		: in  std_logic;
-    stay_in 	: in  std_logic;
-    show_in 	: in  std_logic;
-    card_in 	: in  std_logic_vector(3 downto 0);
-    num_out 	: out std_logic_vector(7 downto 0);
-    en0_out 	: out std_logic;
-    en1_out 	: out std_logic;
-    win_out		: out std_logic;
-    lose_out	: out std_logic;
-    tie_out		: out std_logic
-  );
-  end component;
-  
-  -- Card Deck
-  component card_deck
-  port(
-      clk       : in  std_logic;
-			rst       : in  std_logic;
-			card_out  : out std_logic_vector(3 downto 0)
-  );
-  end component;
-
   -- Clock period definitions
   constant CLK_PERIOD : time := 10 ns;
   
@@ -66,7 +38,7 @@ architecture behavior of black_jack_top_tb is
 begin
  
   -- Instantiate the DUT
-  dut: black_jack_top
+  dut: entity work.black_jack_top
   port map (
     clk_in   => clk_in,
     rst_in   => rst_in,
@@ -83,7 +55,7 @@ begin
   );
   
   -- Instantiate the card deck
-  deck: card_deck
+  deck: entity work.card_deck
   port map (
     clk      => clk_in,
     rst      => rst_in,
@@ -98,33 +70,33 @@ begin
 	begin		
 		-- Push reset
 		wait for 50 ms;
-		sig_rst_in <= '1';
+		rst_in <= '1';
 		wait for 20 ms;
-		sig_rst_in <= '0';
+		rst_in <= '0';
 		
 		-- Push hit
 		wait for 50 ms;
-		sig_hit_in <= '1';
+		hit_in <= '1';
 		wait for 20 ms;
-		sig_hit_in <= '0';
+		hit_in <= '0';
 		
 		-- Push hit again
 		wait for 50 ms;
-		sig_hit_in <= '1';
+		hit_in <= '1';
 		wait for 20 ms;
-		sig_hit_in <= '0';
+		hit_in <= '0';
 		
 		-- Push stay
 		wait for 50 ms;
-		sig_stay_in <= '1';
+		stay_in <= '1';
 		wait for 20 ms;
-		sig_stay_in <= '0';
+		stay_in <= '0';
 		
 		-- Push show
 		wait for 50 ms;
-		sig_show_in <= '1';
+		show_in <= '1';
 		wait for 100 ms;
-		sig_show_in <= '0';
+		show_in <= '0';
 		
 	end process;
 end;
