@@ -30,6 +30,11 @@ signal counter : integer;
 constant NUMBER_OF_CARDS : integer := 52;
 
 begin
+
+	-- Pin linkage
+	load_ok_out <= sig_load_ok_out;
+	card_out <= sig_card_out;
+
 	process (clk, rst)
     variable index : integer;
 	begin

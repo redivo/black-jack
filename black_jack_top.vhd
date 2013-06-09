@@ -29,8 +29,18 @@ entity black_jack_top is
 		);
 end black_jack_top;
 
--- Behavior coding
+
+
+
+-------------------------------
+-- Architecture coding --
+-------------------------------
+
 architecture behavior of black_jack_top is 
+	---------------------------------------
+	-- Modules componentation --
+	---------------------------------------
+
   -- Displayer module
 	component displayer
 	port(
@@ -87,7 +97,9 @@ architecture behavior of black_jack_top is
   );
   end component;
    
-  -- Modules signals 
+   -------------------------------
+   -- Signals declaration --
+   -------------------------------
   signal sig_clk 			          : std_logic;
   signal sig_rst 			          : std_logic;
   signal sig_stay_to_trig	      : std_logic;
@@ -109,6 +121,33 @@ architecture behavior of black_jack_top is
   signal sig_dig_to_disp	      : std_logic_vector(7 downto 0);
 
 begin
+	-----------------
+	-- Behavior --
+	-----------------
+	
+	-------------------------
+	-- Top pin linkage --
+	-------------------------
+	-- General signals
+	 sig_clk <= clk_in;
+	 sig_rst <= rst_in;
+	
+	-- Signals to loader
+	 sig_card_to_loader <= card_in;
+	
+	-- Signals to trigger
+	 sig_hit_to_trig <= hit_in;
+	 sig_stay_to_trig <= stay_in;
+	 sig_show_to_trig <= show_in;
+	
+	-- Signals out
+	num_out <= sig_dig_to_disp;
+	en0_out <= sig_en0;
+	en1_out <= sig_en1;
+	win_out <= sig_win_out;
+	lose_out <= sig_lose_out;
+	tie_out <= sig_tie_out;
+
 
   -- Instantiate the Displayer --
   disp: displayer 
