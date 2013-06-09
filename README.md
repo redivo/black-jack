@@ -6,9 +6,11 @@ Black Jack implementation in VHDL.
 Instructions
 -------
 
-* Está tudo sincronizado com a borda de subida do clock. Não há generic para isso.
+* É preciso fazer um reset para iniciar o jogo.
 
 * Após o reset, esperar pelo menos 52 ciclos de clock para carregar o baralho de cartas.
+
+* Está tudo sincronizado com a borda de subida do clock. Não há generic para isso.
 
 * O programa shuffle.c pode ser opcionalmente usado para gerar um novo baralho embaralhado. Depois, tem que passar isso para o card_deck.vhd.
 
