@@ -1,0 +1,30 @@
+=== DEFINIÇÕES DE CASOS DE TESTE ===
+
+--- Caso de teste 1 ---
+
+* Descrição: Player ganha de primeira
+
+* Condições iniciais: cartas, nesta ordem, 2-3-5-6-6-8-...
+
+* Execução: 
+	1- Duas cartas para cada jogador (ordem player-dealer-player-dealer):
+		Player: 2-5 = Total 7 pontos
+		Dealer: 3-6 = Total 9 pontos
+		Display exibe 07
+		LEDs desligados
+		
+	2- Player aperta botão Hit e recebe uma carta (6): 
+		Total 13 pontos
+		Display exibe 13
+		LEDs desligados
+	
+	3- Player aperta botão Hit e recebe uma carta (8):
+		Total 21 pontos
+		Display exibe 21
+		LED de Win ligado
+		Demais LEDs desligados
+		
+	4- Pressionando botão Show:
+		Displays exibem 09
+		LED de Win ligado
+		Demais LEDs desligados
