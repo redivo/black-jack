@@ -3,7 +3,7 @@
 -- Author:  Caroline Brandt Menti e Dairan Severo Corrêa
 -- Design:  Blackjack - Projeto de Sistemas Integrados I
 --------------------------------------------------
--- Description: 
+-- Description: maquina de estados do jogo e união das outras partes
 --------------------------------------------------
 
 --------------------------
@@ -20,7 +20,7 @@ library ieee;
 entity blackjack_top is
     generic
     (
-    	CARDS_QNT	: std_logic_vector(5 downto 0) := "110011"; -- 51
+    	CARDS_QNT	: std_logic_vector(5 downto 0) := "110011"; -- quantidade de cartas = 52-1=51...0
     	CATHODE     : std_logic := '1';
         CLK_EDGE    : std_logic := '1';
         RST_HILO    : std_logic := '1'
@@ -63,14 +63,16 @@ architecture blackjack_top of blackjack_top is
 --------------------------
 
     signal  state                   : states;          -- estado atual da máquina de estados
-    signal sum, sum_card, sum_one, temp,
+    signal sum, sum_card, sum_one, temp, -- valores temporarios para realizar a soma de pontos
             pt_player, pt_dealer     : std_logic_vector(4 downto 0);      -- contador de pontos do dealer e do player
     signal ini_card                 : integer; -- contador para cartas iniciais
-    signal counter_load             : std_logic_vector(5 downto 0); -- ponteiro para seleção de carta
-    signal stay_player, stay_dealer : std_logic;
-    signal cards, value_card        : std_logic_vector(3 downto 0);
-    signal write_card               : std_logic; -- ativa leitura no banco de cartas
-    signal to_display               : std_logic_vector(4 downto 0);
+    signal counter_load             : std_logic_vector(5 downto 0); -- ponteiro para seleção de carta, endereco para o banco de registradores
+    signal stay_player, stay_dealer : std_logic; -- controle de parada de cada jogador
+    signal cards, value_card        : std_logic_vector(3 downto 0);--cards é o valor da carta original -- value_card valor da carta no jogo 
+    signal write_card               : std_logic; -- ativa leitura no banco de cartas (banco de registradores)
+    signal to_display               : std_logic_vector(4 downto 0); -- mux para mostrar(show) entre os pontos do dealer e os pontos do player
+    signal display_D                : std_logic_vector(7 downto 0);
+    signal en0_D, en1_D             : std_logic;
 
 begin
 
@@ -78,12 +80,12 @@ begin
 -- instances
 --------------------------
 
-	card_bank: entity work.regbank
+	card_bank: entity work.regbank --instancia o banco de registradores
 		generic map(CLK_EDGE => CLK_EDGE,
 			        RST_HILO => RST_HILO)
 		port map(clk      => clk,
 			     reset     => reset,
-			     wreg      => write_card,
+			     wreg      => write_card, 
 			     address   => counter_load,
 			     value_in  => card,
 			     value_out => cards);
@@ -95,16 +97,16 @@ begin
 		port map(clk       => clk,
 			     reset      => reset,
 			     number     => to_display,
-			     en0        => en0,
-			     en1        => en1,
-		         bcd_out    => display);
+			     en0        => en0_D,
+			     en1        => en1_D,
+		         bcd_out    => display_D);
 
 --------------------------
 -- combinational
 --------------------------
     win  <= '1' when state=S_END and ( (pt_player > pt_dealer and pt_player <= 21) or (pt_player < pt_dealer and pt_dealer >  21) ) else '0';
     lose <= '1' when state=S_END and ( (pt_player > pt_dealer and pt_player >  21) or (pt_player < pt_dealer and pt_dealer <= 21) ) else '0';
-    tie  <= '1' when state=S_END and pt_player = pt_dealer else '0';
+    tie  <= '1' when state=S_END and pt_player = pt_dealer else '0'; -- empata
     
     to_display <= pt_dealer when state=S_END and show='1' else
     			  pt_player;
@@ -112,22 +114,23 @@ begin
     
     write_card <= '1' when state=S_LOAD else '0';
     
-    value_card <= "1011" when cards=1 else
-    			  "1010" when cards=11 or cards=12 or cards=13 else
+    value_card <= "1011" when cards=1 else --escreve 11 A
+    			  "1010" when cards=11 or cards=12 or cards=13 else --escreve 10 J,Q,K
     			  cards;
     
-    temp <= pt_player when ini_card = 0 or ini_card = 2 or (stay_player = '0' and ini_card /= 1 and ini_card /= 3) else
-            pt_dealer when ini_card = 1 or ini_card = 3 or (ini_card /= 0 and ini_card /= 2) else
+    temp <= pt_player when ini_card = 0 or ini_card = 2 or (stay_player = '0' and ini_card /= 1 and ini_card /= 3) else --escolhe quem vai ser somado de acordo com
+            pt_dealer when ini_card = 1 or ini_card = 3 or (ini_card /= 0 and ini_card /= 2) else --a ordem de distribuiçao das cartas ou a jogada
             "00000";
     
-    sum_card <= temp + value_card;
-    sum_one  <= temp + 1;        
-    sum <= sum_one when value_card = 11 and sum_card > 21 else sum_card;
+    sum_card <= temp + value_card; -- soma os pontos com o valor da carta que vai receber por ultimo
+    sum_one  <= temp + 1;     --caso A: soma 1 aos pontos
+    sum <= sum_one when value_card = 11 and sum_card > 21 else sum_card;-- caso A: vale 1 quando a soma for maior que 21 senao soma 11
 
 --------------------------
 -- processes
 --------------------------
-
+    
+    
     -- parte sequencial da máquina de estados finitos
     fsm: process(clk)
     begin
@@ -136,15 +139,18 @@ begin
             if reset = RST_HILO then 
                 state   <= S_START;
             else
+                display <= display_D;
+                en0 <= en0_D;
+                en1 <= en1_D;
 
                 case state is
                     
                     -- estado inicial que inicializa os sinais
                     when S_START => 
                         state <= S_LOAD;
-
+                    ---- carrega todo o baralho
                     when S_LOAD =>
-                        if counter_load = CARDS_QNT then
+                        if counter_load = CARDS_QNT then 
                             state <= S_CARD;
                         else
                             state <= S_LOAD;
@@ -157,7 +163,7 @@ begin
                         if ini_card < 3 then
                             state <= S_CARD;
                             
-                        -- se alguém perdeu ou se ambos jogadores estão em stay
+                        -- se alguém perdeu ou ganhou ou se ambos jogadores estão em stay
                         elsif pt_player > 21 or pt_dealer > 21 or (stay_player = '1' and stay_dealer = '1') then
                             state <= S_END;
                             
@@ -202,11 +208,11 @@ begin
     end process;
     
     
-    -- parte combinacional da máquina de estados finitos
+    -- parte combinacional da máquina de estados finitos--
     process(clk)
     begin
         if clk'event and clk = CLK_EDGE then
-        
+        --para previnir latch recebem ela mesmo
             ini_card     <= ini_card;
             stay_player  <= stay_player;
             stay_dealer  <= stay_dealer;
@@ -216,7 +222,7 @@ begin
             
             case state is
                 
-                -- estado inicial que inicializa os sinais
+                -- estado para inicialização dos sinais
                 when S_START => 
                     ini_card    <= 0;
                     stay_player <= '0';
@@ -227,15 +233,15 @@ begin
                     
                 when S_LOAD =>
                 	if counter_load = CARDS_QNT then
-                		counter_load <= (others=>'0');
+                		counter_load <= (others=>'0');--se chego até as 51 cartas, zera o contador senao fica contando
             		else
                     	counter_load <= counter_load + 1;
                     end if;
 
                 -- estado para verificação das cartas
                 when S_CARD =>            
-                    -- se ainda está entregando as cartas iniciais
-                    if stay_player = '0' or stay_dealer = '0' then
+                    --entrega cartas
+                    if stay_player = '0' or stay_dealer = '0' then -- se algum jogador nao pediu stay
                         
                         if ini_card = 0 or ini_card = 2 or (stay_player = '0' and ini_card /= 1 and ini_card /= 3) then
                             pt_player <= sum;
@@ -244,10 +250,10 @@ begin
                         end if;
                         
                         if ini_card < 3 then
-                            counter_load <= counter_load + 1;
+                            counter_load <= counter_load + 1; --soma 1 no banco de registradores para pegar o proximo endereco da proxima carta
                         end if;
                         
-                        if ini_card < 4 then
+                        if ini_card < 4 then    --soma 1 para dar as cartas iniciais
                             ini_card <= ini_card + 1;
                         end if;
                         
@@ -258,7 +264,7 @@ begin
                     if stay = '1' and hit = '0' then
                         stay_player <= '1';
                     elsif hit = '1' and stay = '0' then
-                    	counter_load <= counter_load + 1;
+                    	counter_load <= counter_load + 1; --soma 1 no banco de registradores para pegar o proximo endereco da proxima carta
                     end if;
 
                 -- estado para o dealer decidir jogada através do sinal stay_dealer
@@ -266,7 +272,7 @@ begin
                     if pt_dealer >= 17 then
                         stay_dealer <= '1';
                     else
-                    	counter_load <= counter_load + 1;
+                    	counter_load <= counter_load + 1; --soma 1 no banco de registradores para pegar o proximo endereco da proxima carta
                     end if;
                 when others =>
             end case;

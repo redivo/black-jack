@@ -3,7 +3,7 @@
 -- Author:  Caroline Brandt Menti e Dairan Severo Corrêa
 -- Design:  Blackjack - Projeto de Sistemas Integrados I
 --------------------------------------------------
--- Description: 
+-- Description: mostra os pontos no display de 7 segmentos
 --------------------------------------------------
 
 --------------------------
@@ -29,11 +29,11 @@ entity bcd is
         clk         : in std_logic;
 		reset       : in std_logic;
 		
-        number      : in    std_logic_vector(4 downto 0);		-- entrada de dados.
+        number      : in    std_logic_vector(4 downto 0);		-- entrada de pontos dos jogadores player/dealer
         
         -- interface com o display.					
-        en0, en1    : out   std_logic;                          -- dígito
-        bcd_out     : out   std_logic_vector(7 downto 0)		-- Ya Yb Yc Yd Ye Yf Yg Ypto.
+        en0, en1    : out   std_logic;                          -- dígito de dezena1/unidade0
+        bcd_out     : out   std_logic_vector(7 downto 0)		-- Ya Yb Yc Yd Ye Yf Yg Ypto. leds do display
     );
 end bcd;
 
@@ -56,7 +56,7 @@ architecture bcd of bcd is
 --------------------------
 -- signals
 --------------------------
-    signal  num_int, uni, dec   : std_logic_vector(3 downto 0);
+    signal  num_int, uni, dec   : std_logic_vector(3 downto 0);--num_int mux entre a unidade e a dezena valor que vai ser colocado no display
     signal  sub10, sub20, sub30 : std_logic_vector(4 downto 0); -- subtrai para obter unidade
     signal  en                  : std_logic; -- controle de qual digito está sendo mostrado
     signal  display             : std_logic_vector(7 downto 0);
@@ -72,8 +72,8 @@ begin
 --------------------------
 -- combinational
 --------------------------
-    en0 <= en when CATHODE='1' else not en;
-    en1 <= not en when CATHODE='1' else en;
+    en0 <= en when CATHODE='1' else not en; -- UNIDADE
+    en1 <= not en when CATHODE='1' else en; -- DEZENA
     
     sub10 <= number - 10;
     sub20 <= number - 20;
@@ -113,7 +113,7 @@ begin
                             
                                                         
 --------------------------
--- processes
+-- processes -- flip flop para ficar trocando o valor do display entre a dezena e a unidade
 --------------------------
     process(clk)
     begin

@@ -28,4 +28,5 @@ esperar pelo menos um ciclo após baixar reset para começar a carregar todas as
 após carregar todas as cartas, esperar pelo menos 4 ciclos para hit ou stay ser identificado;
 um novo hit ou um stay só será processado após 2 ciclos depois de ser identificado um hit;
 resultado win, lose ou tie aparecerá somente após stay ser identificado e a quantidade de ciclos dependerá da sequência de cartas para o dealer chegar em 17
+display atrasa 1 ciclo para mostrar pontos, exemplo show pressionado, esperar 1 ciclo para começar a ver os pontos do dealer  
 
