@@ -94,7 +94,7 @@ begin
 				counter <= counter + 1;
 			else
 				counter <= 0;
-        -- This causes invalid index on the vector...
+                -- This causes invalid index on the vector...
 				--sig_card_out <= card(counter);
 			end if;
 		end if;
