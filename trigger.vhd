@@ -33,7 +33,8 @@ signal stay_pressed_out: std_logic;
 signal hit_hysteresis: integer;
 signal stay_hysteresis: integer;
 
-constant HYSTERESIS: integer := 50;
+--constant HYSTERESIS: integer := 50;
+constant HYSTERESIS: integer := 1;
 begin
 
 	-- Set signals to pins
@@ -42,7 +43,7 @@ begin
 	sig_show_out <= show_in;
 	show_out <= sig_show_out;
 
-	process (clk, rst)
+	process (clk)
 	begin
 		if (clk'event and clk = '1') then
 
@@ -51,7 +52,6 @@ begin
 				stay_hysteresis <= 0;
 				hit_pressed_out <= '1';
 				stay_pressed_out <= '1';
-
 			else
 				-- Handle Hit input
 				if (hit_in = '1' and sig_hit_out = '0' and hit_pressed_out = '1') then
@@ -62,7 +62,7 @@ begin
 						sig_hit_out <= '1';
 					else
 						sig_hit_out <= '0';
-				end if;
+					end if;
 				else
 					if (hit_in = '0') then
 					hit_pressed_out <= '1';

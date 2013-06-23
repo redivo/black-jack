@@ -83,17 +83,19 @@ begin
 	-- end of paste
 
   card_out <= sig_card_out;
-  
-	process (clk, rst)
+
+	process (clk)
 	begin
 		if (clk'event and clk = '1') then
 			if rst = '1' then
 				counter <= 0;
-			elsif (counter >= 0 and counter < NUMBER_OF_CARDS) then
-				sig_card_out <= card(counter);
+				sig_card_out <= card(0);
+			elsif (counter >= 0 and counter < (NUMBER_OF_CARDS - 1)) then
 				counter <= counter + 1;
+				sig_card_out <= card(counter+1);
 			else
 				counter <= 0;
+				sig_card_out <= card(0);
                 -- This causes invalid index on the vector...
 				--sig_card_out <= card(counter);
 			end if;

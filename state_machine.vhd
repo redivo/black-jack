@@ -95,18 +95,22 @@ begin
 
 					-- Give cards (2 for each)
 					when START =>
-						sig_req_card_out <= '1';
-						
-						if (card_counter = 0 or card_counter = 2) then
-							player_points <= player_points + card_in;
-						elsif (card_counter = 1 or card_counter = 3) then
-							dealer_points <= dealer_points + card_in;
+						if sig_req_card_out = '0' then
+							sig_req_card_out <= '1';
+							card_counter <= card_counter + 1;
+
+							if (card_counter = 0 or card_counter = 2) then
+								player_points <= player_points + card_in;
+							elsif (card_counter = 1 or card_counter = 3) then
+								dealer_points <= dealer_points + card_in;
+							else
+								sig_req_card_out <= '0';
+								State <= SHOW_POINTS;
+							end if;
+
 						else
 							sig_req_card_out <= '0';
-							State <= SHOW_POINTS;
-						end if;	
-						
-						card_counter <= card_counter + 1;
+						end if;
 
 					-- Show player points on displays
 					when SHOW_POINTS => 

@@ -68,160 +68,38 @@ begin
 	-- Stimulus process
 	stim_proc: process
 	begin	
-		-- Syntax: 
-		--	assert condition report string severity severity_level;
-		
-		-- severity, predefined values: 
-		--	note, warning, error, and failure.
-		
-		-- Assumir sempre failure, visto que eh uma verificacao funcional?
-		
-		-- Example: 
-		--	assert not hit_out report "Should win" severity failure;
-		
-		
 		-- ### RESET: START THE GAME ### --
-		report "Reseting..."
-		severity note;
-		
-		wait for 50 ms;
+		wait for 50 ns;
 		rst_in <= '1';
-		wait for 20 ms;
+		wait for 20 ns;
 		rst_in <= '0';
-		
-		report "Reset done."
-		severity note;
-		
-		-- ### LEDS POWERED OFF ### --
-		
-		-- TODO: Criar funcoes para verificacoes comuns.
-		report "Checking LEDs..."
-		severity note;
-		
-		assert (win_out = '0')
-			report "Win's LED should be powered off."
-			severity failure;
-			
-		assert (lose_out = '0')
-			report "Lose's LED should be powered off."
-			severity failure;
-		
-		assert (tie_out = '0')
-			report "Tie's LED should be powered off."
-			severity failure;
-		
-		-- Player: 7 points
-		-- Dealer: 9 points
-		-- TODO: Como verificar digitos no displayer, se eles ficam oscilando??
-		report "Checking displays..."
-		severity note;
-		assert ((num_out = "00000011" and en1 = '1') or (num_out = "00011111" and en0 = '1'))
-			report "Invalid value on displays."
-			severity failure;
-		
-		-- ### PUSH HIT ### --
-		wait for 50 ms;
-		hit_in <= '1';
-		wait for 20 ms;
-		hit_in <= '0';
-		
-		-- Player: 13 points
-		
-		report "Checking first Hit..."
-		severity note;
-		
-		report "Checking LEDs..."
-		severity note;
-		
-		assert (win_out = '0')
-			report "Win's LED should be powered off."
-			severity failure;
-			
-		assert (lose_out = '0')
-			report "Lose's LED should be powered off."
-			severity failure;
-		
-		assert (tie_out = '0')
-			report "Tie's LED should be powered off."
-			severity failure;
-			
-		report "Checking displays..."
-		severity note;
-			
-		assert ((num_out = "00000011" and en1 = '1') or (num_out = "00001101" and en0 = '1'))
-			report "Invalid value on displays."
-			severity failure;	
-		
-		
-		-- ### PUSH HIT AGAIN AND PLAYER WINS ### --
-		wait for 50 ms;
-		hit_in <= '1';
-		wait for 20 ms;
-		hit_in <= '0';
-		
-		-- Player: 21 points (Win)
-		
-		report "Checking second Hit..."
-		severity note;
-				
-		report "Checking LEDs when player wins..."
-		severity note;
-		
-		assert (win_out = '1')
-			report "Win's LED should be powered on."
-			severity failure;
-			
-		assert (lose_out = '0')
-			report "Lose's LED should be powered off."
-			severity failure;
-		
-		assert (tie_out = '0')
-			report "Tie's LED should be powered off."
-			severity failure;
 
-		report "Checking player points..."
-		severity note;
-		
-		assert ((num_out = "00100101" and en1 = '1') or (num_out = "10011111" and en0 = '1'))
-			report "Invalid value on displays."
-			severity failure;	
-			
+		-- ### PUSH HIT ### --
+		wait for 640 ns;
+		hit_in <= '1';
+		wait for 20 ns;
+		hit_in <= '0';
+
+		-- ### PUSH HIT AGAIN AND PLAYER WINS ### --
+		wait for 50 ns;
+		hit_in <= '1';
+		wait for 20 ns;
+		hit_in <= '0';
+
+		-- ### PUSH STAY AND PLAYER WINS ### --
+		wait for 50 ns;
+		stay_in <= '1';
+		wait for 20 ns;
+		stay_in <= '0';
+
 		-- ### PUSH SHOW ### --
-		wait for 50 ms;
+		wait for 50 ns;
 		show_in <= '1';
-		
-		report "Checking push show..."
-		severity note;
-		
-		report "Checking LEDs when pushed show..."
-		severity note;
-		
-		assert (win_out = '1')
-			report "Win's LED should be powered on."
-			severity failure;
-			
-		assert (lose_out = '0')
-			report "Lose's LED should be powered off."
-			severity failure;
-		
-		assert (tie_out = '0')
-			report "Tie's LED should be powered off."
-			severity failure;
-		
-		report "Checking dealer points..."
-		severity note;
-		
-		assert ((num_out = "00000011" and en1 = '1') or (num_out = "00001001" and en0 = '1'))
-			report "Invalid value on displays."
-			severity failure;	
-		
-		wait for 100 ms;
+
+		wait for 100 ns;
 		show_in <= '0';
-		
-		assert ((num_out = "00100101" and en1 = '1') or (num_out = "10011111" and en0 = '1'))
-			report "Invalid value on displays."
-			severity failure;	
-		
+
+
 	end process;
-	
+
 end; -- END TESTBENCH --
