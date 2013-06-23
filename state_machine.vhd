@@ -145,9 +145,25 @@ begin
 							sig_req_card_out <= '1';
 
 							if dealer_turn = '1' then
-								dealer_points <= dealer_points + card_in;
+								if (card_in > 10) then
+									dealer_points <= dealer_points + 10;
+								else
+									if card_in = 1 and dealer_points <= 10 then
+										dealer_points <= dealer_points + 11;
+									else
+										dealer_points <= dealer_points + card_in;
+									end if;
+								end if;
 							else
-								player_points <= player_points + card_in;
+								if (card_in > 10) then
+									player_points <= player_points + 10;
+								else
+									if card_in = 1 and player_points <= 10 then
+										player_points <= player_points + 11;
+									else
+										player_points <= player_points + card_in;
+									end if;
+								end if;
 							end if;
 						end if;
 
