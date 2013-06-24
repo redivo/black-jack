@@ -186,7 +186,9 @@ begin
                         
                     -- estado para aguardar uma decisão do player
                     when S_PLAYER =>
-                        if hit = '1' and stay = '0' then
+                    	if pt_player >= 21 then
+                            state <= S_END;
+                        elsif hit = '1' and stay = '0' then
                             state <= S_CARD;
                         elsif stay = '1' and hit = '0' then
                             state <= S_DEALER;
