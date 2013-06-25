@@ -14,8 +14,8 @@ entity displayer is
     (
         clk_in  	: in  std_logic;
         data_in 	: in  std_logic_vector(4 downto 0);  -- points
-		  rst_in		: in 	std_logic;
-        num_out	: out std_logic_vector(7 downto 0);  -- data to display
+		rst_in		: in 	std_logic;
+        num_out		: out std_logic_vector(7 downto 0);  -- data to display
         en0_out 	: out std_logic;                     -- enable for unit display
         en1_out 	: out std_logic                      -- enable for ten display
     );
@@ -27,8 +27,8 @@ architecture displayer of displayer is
     signal  ten        	: std_logic_vector(3 downto 0);
     signal  number     	: std_logic_vector(3 downto 0);
     signal  number_out 	: std_logic_vector(7 downto 0);
-	 signal  enable		: std_logic; 	-- enable = 0 -> one
-													-- enable = 1 -> ten
+	signal  enable		: std_logic; 	-- enable = 0 -> one
+										-- enable = 1 -> ten
 begin
 
 	-- instance of bin_to_bcd: binary number to bcd (binary-coded decimal)
@@ -50,9 +50,9 @@ begin
 	process(clk_in, data_in, rst_in)
 	begin
 
-		bin <= data_in;
-	 
 		if clk_in'event and clk_in = '1' then
+			bin <= data_in;
+
 			if rst_in = '1' then
 				number <= "1111";
 				en0_out <= '0';
@@ -63,15 +63,15 @@ begin
 				en0_out <= '0';
 				en1_out <= '1';
 				enable <= not enable;
-			else
+			elsif enable = '0' then
 				number <= one;
 				en0_out <= '1';
 				en1_out <= '0';
 				enable <= not enable;
 			end if;
+			
+			num_out <= number_out;
 		end if;
 
-		num_out <= number_out;
-	
 	end process;
 end displayer;
