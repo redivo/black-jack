@@ -100,9 +100,31 @@ begin
 							card_counter <= card_counter + 1;
 
 							if (card_counter = 0 or card_counter = 2) then
-								player_points <= player_points + card_in;
+								-- Handle letter cards
+								if (card_in > 10) then
+									player_points <= player_points + 10;
+								else
+									-- Handle A
+									if card_in = 1 and player_points <= 10 then
+										player_points <= player_points + 11;
+									-- Other cases
+									else
+										player_points <= player_points + card_in;
+									end if;
+								end if;
 							elsif (card_counter = 1 or card_counter = 3) then
-								dealer_points <= dealer_points + card_in;
+								-- Handle letter cards
+								if (card_in > 10) then
+									dealer_points <= dealer_points + 10;
+								else
+									-- Handle A
+									if card_in = 1 and dealer_points <= 10 then
+										dealer_points <= dealer_points + 11;
+									-- Other cases
+									else
+										dealer_points <= dealer_points + card_in;
+									end if;
+								end if;
 							else
 								sig_req_card_out <= '0';
 								State <= SHOW_POINTS;
@@ -145,21 +167,27 @@ begin
 							sig_req_card_out <= '1';
 
 							if dealer_turn = '1' then
+								-- Handle letter cards
 								if (card_in > 10) then
 									dealer_points <= dealer_points + 10;
 								else
+									-- Handle A
 									if card_in = 1 and dealer_points <= 10 then
 										dealer_points <= dealer_points + 11;
+									-- Other cases
 									else
 										dealer_points <= dealer_points + card_in;
 									end if;
 								end if;
 							else
+								-- Handle letter cards
 								if (card_in > 10) then
 									player_points <= player_points + 10;
 								else
+									-- Handle A
 									if card_in = 1 and player_points <= 10 then
 										player_points <= player_points + 11;
+									-- Other cases
 									else
 										player_points <= player_points + card_in;
 									end if;
